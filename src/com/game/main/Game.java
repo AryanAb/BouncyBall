@@ -20,7 +20,6 @@ public class Game extends Canvas implements Runnable {
 
         new Window(WIDTH, HEIGHT, "Bouncy Ball!", this);
 
-
         handler.addObject(new Player(100, 100, ID.Player, handler));
         handler.addObject(new Tile(100, 200, ID.Tile));
 

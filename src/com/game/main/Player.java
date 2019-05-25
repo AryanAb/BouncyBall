@@ -49,7 +49,6 @@ public class Player extends GameObject {
 
         setVelY(-3);
         heightTraveled += getVelY();
-        System.out.println(heightTraveled);
         if(heightTraveled == -99){
             setVelY(+3);
             bouncing = false;

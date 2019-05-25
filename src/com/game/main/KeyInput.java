@@ -18,8 +18,8 @@ public class KeyInput extends KeyAdapter {
 
         //if(key == KeyEvent.VK_W) tempObject.setVelY(-5);
         //if(key == KeyEvent.VK_S) tempObject.setVelY(5);
-        if(key == KeyEvent.VK_D) tempObject.setVelX(5);
-        if(key == KeyEvent.VK_A) tempObject.setVelX(-5);
+        if(key == KeyEvent.VK_D || key == KeyEvent.VK_RIGHT) tempObject.setVelX(5);
+        if(key == KeyEvent.VK_A || key == KeyEvent.VK_LEFT) tempObject.setVelX(-5);
     }
 
     public void keyReleased(KeyEvent e) {
@@ -29,8 +29,8 @@ public class KeyInput extends KeyAdapter {
 
         //if(key == KeyEvent.VK_W) tempObject.setVelY(0);
         //if(key == KeyEvent.VK_S) tempObject.setVelY(0);
-        if(key == KeyEvent.VK_D) tempObject.setVelX(0);
-        if(key == KeyEvent.VK_A) tempObject.setVelX(0);
+        if(key == KeyEvent.VK_D || key == KeyEvent.VK_RIGHT) tempObject.setVelX(0);
+        if(key == KeyEvent.VK_A || key == KeyEvent.VK_LEFT) tempObject.setVelX(0);
     }
 
 }
