@@ -14,10 +14,15 @@ public class Game extends Canvas implements Runnable {
     private Handler handler;
 
     public Game(){
-
-        new Window(WIDTH, HEIGHT, "Let's Bulid a Game!", this);
-
         handler = new Handler();
+
+        this.addKeyListener(new KeyInput(handler));
+
+        new Window(WIDTH, HEIGHT, "Bouncy Ball!", this);
+
+
+        handler.addObject(new Player(100, 100, ID.Player, handler));
+        handler.addObject(new Tile(100, 200, ID.Tile));
 
     }
 
@@ -59,7 +64,7 @@ public class Game extends Canvas implements Runnable {
             frames++;
             if(System.currentTimeMillis() - timer > 1000){
                 timer += 1000;
-                System.out.println("FPS: " + frames);
+                //System.out.println("FPS: " + frames);
                 frames = 0;
             }
         }
