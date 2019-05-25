@@ -1,0 +1,7 @@
+1. Add Stars.
+2. Add Death Tiles.
+3. Add Boost Tiles.
+4. Add GUI (main menu, score count, etc.)
+5. Add file read and out.
+6. Use file read and out to place tiles, sprites, etc.
+7. Create a level editor.
