@@ -1,5 +1,6 @@
 package com.game.main;
 
+import javax.swing.*;
 import java.awt.*;
 import java.awt.image.BufferStrategy;
 //import java.security.spec.ECField;
@@ -12,6 +13,9 @@ public class Game extends Canvas implements Runnable {
     private boolean isRunning = false;
 
     private Handler handler;
+    private HUD hud;
+    private Spawn spawner;
+    //private Window win;
 
     public Game(){
         handler = new Handler();
@@ -19,9 +23,15 @@ public class Game extends Canvas implements Runnable {
         this.addKeyListener(new KeyInput(handler));
 
         new Window(WIDTH, HEIGHT, "Bouncy Ball!", this);
+        //win.getPreferredSize(win);
+
+        hud = new HUD();
+        spawner = new Spawn(handler, hud);
 
         handler.addObject(new Player(100, 100, ID.Player, handler));
-        handler.addObject(new Tile(100, 200, ID.Tile));
+        handler.addObject(new Tile(100, 200, ID.BounceTile));
+        handler.addObject(new DeathTile(300,300, ID.DeathTile));
+        handler.addObject(new Star(125, 170, ID.Star));
 
     }
 
@@ -63,7 +73,7 @@ public class Game extends Canvas implements Runnable {
             frames++;
             if(System.currentTimeMillis() - timer > 1000){
                 timer += 1000;
-                //System.out.println("FPS: " + frames);
+                System.out.println("FPS: " + frames);
                 frames = 0;
             }
         }
@@ -72,7 +82,9 @@ public class Game extends Canvas implements Runnable {
     }
 
     private void tick(){
+
         handler.tick();
+        hud.tick();
     }
 
     private void render(){
@@ -86,6 +98,8 @@ public class Game extends Canvas implements Runnable {
         g.fillRect(0, 0, WIDTH, HEIGHT);
 
         handler.render(g);
+
+        hud.render(g);
 
         g.dispose();
         bs.show();

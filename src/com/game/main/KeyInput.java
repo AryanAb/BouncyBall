@@ -20,6 +20,7 @@ public class KeyInput extends KeyAdapter {
         //if(key == KeyEvent.VK_S) tempObject.setVelY(5);
         if(key == KeyEvent.VK_D || key == KeyEvent.VK_RIGHT) tempObject.setVelX(5);
         if(key == KeyEvent.VK_A || key == KeyEvent.VK_LEFT) tempObject.setVelX(-5);
+        if(key == KeyEvent.VK_ESCAPE) System.exit( 0);
     }
 
     public void keyReleased(KeyEvent e) {

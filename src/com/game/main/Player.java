@@ -9,6 +9,7 @@ public class Player extends GameObject {
     Handler handler;
     int heightTraveled = 0;
     boolean bouncing = false;
+    HUD hud = new HUD();
 
     public Player(int x, int y, ID id, Handler handler) {
         super(x, y, id);
@@ -36,12 +37,21 @@ public class Player extends GameObject {
 
             GameObject tempObject = handler.object.get(i);
 
-            if(tempObject.getId() == ID.Tile) {
+            if(tempObject.getId() == ID.BounceTile) {
                 if(getBounds().intersects(tempObject.getBounds())) {
                     bouncing = true;
                 }
+            } else if(tempObject.getId() == ID.DeathTile) {
+                if(getBounds().intersects(tempObject.getBounds())) {
+                    System.out.println("You died");
+                }
             }
-
+            if(tempObject.getId() == ID.Star) {
+                if(getBounds().intersects(tempObject.getBounds())) {
+                    //hud.setCollided(true);
+                    hud.collided = true;
+                }
+            }
         }
     }
 
@@ -60,7 +70,6 @@ public class Player extends GameObject {
     @Override
     public void render(Graphics g) {
         g.setColor(Color.blue);
-        //g.fillRect(x, y, 32, 32);
         g.fillOval(x, y, 32, 32);
     }
 }

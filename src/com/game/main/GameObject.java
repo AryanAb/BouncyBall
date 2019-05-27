@@ -18,12 +18,8 @@ public abstract  class GameObject {
     public abstract void render(Graphics g);
     public abstract Rectangle getBounds();
 
-    public void setX(int x) {
-        this.x = x;
-    }
-    public void setY(int y) {
-        this.y = y;
-    }
+    public void setX(int x) { this.x = x; }
+    public void setY(int y) { this.y = y; }
     public int getX() {
         return x;
     }

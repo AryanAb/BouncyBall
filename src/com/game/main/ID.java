@@ -3,6 +3,10 @@ package com.game.main;
 public enum ID{
 
     Player(),
-    Tile();
+    BounceTile(),
+    DeathTile(),
+    Star(),
+    VBoost(),
+    HBoost()
 
 }
