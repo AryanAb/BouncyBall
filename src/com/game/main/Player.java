@@ -39,7 +39,15 @@ public class Player extends GameObject {
 
             if(tempObject.getId() == ID.BounceTile) {
                 if(getBounds().intersects(tempObject.getBounds())) {
-                    bouncing = true;
+                    //System.out.println(tempObject.getBounds());
+                    //System.out.println(getY() + 32);
+                    //System.out.println();
+                    if (getY() + 32 > tempObject.getBounds().y - 2 && getY() + 32 < tempObject.getBounds().y + 2){
+                        bouncing = true;
+                    } else {
+                        velX = 0;
+                    }
+
                 }
             } else if(tempObject.getId() == ID.DeathTile) {
                 if(getBounds().intersects(tempObject.getBounds())) {
@@ -48,10 +56,12 @@ public class Player extends GameObject {
             }
             if(tempObject.getId() == ID.Star) {
                 if(getBounds().intersects(tempObject.getBounds())) {
-                    System.out.println("Collided with the star");
                     handler.removeObject(tempObject);
                     hud.collided = true;
                 }
+            }
+            if(tempObject.getId() == ID.VBoost){
+
             }
         }
     }
