@@ -48,7 +48,8 @@ public class Player extends GameObject {
             }
             if(tempObject.getId() == ID.Star) {
                 if(getBounds().intersects(tempObject.getBounds())) {
-                    //hud.setCollided(true);
+                    System.out.println("Collided with the star");
+                    handler.removeObject(tempObject);
                     hud.collided = true;
                 }
             }

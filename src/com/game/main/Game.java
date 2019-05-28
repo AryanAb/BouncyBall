@@ -32,6 +32,7 @@ public class Game extends Canvas implements Runnable {
         handler.addObject(new Tile(100, 200, ID.BounceTile));
         handler.addObject(new DeathTile(300,300, ID.DeathTile));
         handler.addObject(new Star(125, 170, ID.Star));
+        handler.addObject(new Star(225, 170, ID.Star));
 
     }
 
@@ -93,9 +94,12 @@ public class Game extends Canvas implements Runnable {
             this.createBufferStrategy(3);
             return;
         }
+
+        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+
         Graphics g = bs.getDrawGraphics();
         g.setColor(Color.white);
-        g.fillRect(0, 0, WIDTH, HEIGHT);
+        g.fillRect(0, 0, (int) screenSize.getWidth(), (int) screenSize.getHeight());
 
         handler.render(g);
 
