@@ -9,6 +9,8 @@ public class Player extends GameObject {
     Handler handler;
     int heightTraveled = 0;
     boolean bouncing = false;
+    boolean vBoosting = false;
+    boolean hBoosting = false;
     HUD hud = new HUD();
 
     public Player(int x, int y, ID id, Handler handler) {
@@ -30,6 +32,8 @@ public class Player extends GameObject {
 
     collision();
     if(bouncing) bounce();
+    if(vBoosting) vBoost();
+    if(hBoosting) hBoost();
     }
 
     private void collision() {
@@ -39,15 +43,12 @@ public class Player extends GameObject {
 
             if(tempObject.getId() == ID.BounceTile) {
                 if(getBounds().intersects(tempObject.getBounds())) {
-                    //System.out.println(tempObject.getBounds());
-                    //System.out.println(getY() + 32);
-                    //System.out.println();
-                    if (getY() + 32 > tempObject.getBounds().y - 2 && getY() + 32 < tempObject.getBounds().y + 2){
+                    if (getY() + 32 > tempObject.getBounds().y - 5 && getY() + 32 < tempObject.getBounds().y + 5){
                         bouncing = true;
                     } else {
                         velX = 0;
+                        velY = +3;
                     }
-
                 }
             } else if(tempObject.getId() == ID.DeathTile) {
                 if(getBounds().intersects(tempObject.getBounds())) {
@@ -57,11 +58,22 @@ public class Player extends GameObject {
             if(tempObject.getId() == ID.Star) {
                 if(getBounds().intersects(tempObject.getBounds())) {
                     handler.removeObject(tempObject);
-                    hud.collided = true;
                 }
             }
             if(tempObject.getId() == ID.VBoost){
-
+                // simplify the if statements
+                if(getBounds().intersects(tempObject.getBounds())) {
+                    if(getY() + 32 > tempObject.getBounds().y - 5 && getY() + 32 < tempObject.getBounds().y + 5){
+                        vBoosting = true;
+                    } else {
+                        velX = 0;
+                    }
+                }
+            }
+            if(tempObject.getId() == ID.HBoost){
+                if(getBounds().intersects(tempObject.getBounds())) {
+                    hBoosting = true;
+                }
             }
         }
     }
@@ -76,6 +88,20 @@ public class Player extends GameObject {
             heightTraveled = 0;
         }
 
+    }
+
+    private void vBoost() {
+        //setVelY(-4);
+        velX = -4;
+        vBoosting = false;
+    }
+
+    private void hBoost() {
+        //HBoost h = new HBoost(0, 0, ID.HBoost);
+        //setVelX(h.getDirection() * 4);
+        velX = +4;
+        velY = 0;
+        hBoosting = false;
     }
 
     @Override

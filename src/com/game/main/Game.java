@@ -29,20 +29,23 @@ public class Game extends Canvas implements Runnable {
         spawner = new Spawn(handler, hud);
 
         handler.addObject(new Player(100, 300, ID.Player, handler));
-        handler.addObject(new Tile(100, 1000, ID.BounceTile));
-        handler.addObject(new Tile(175, 1000, ID.BounceTile));
+        handler.addObject(new Tile(100, 800, ID.BounceTile));
+        handler.addObject(new Tile(175, 800, ID.BounceTile));
         //handler.addObject(new DeathTile(300,300, ID.DeathTile));
-        handler.addObject(new Star(150, 925, ID.Star));
-        handler.addObject(new Tile(250,925,ID.BounceTile));
-        handler.addObject(new Tile(550,925,ID.BounceTile));
-        handler.addObject(new Tile(625,925,ID.BounceTile));
-        handler.addObject(new Tile(700,850,ID.BounceTile));
-        handler.addObject(new Tile(775,775,ID.BounceTile));
-        handler.addObject(new Tile(850,700,ID.BounceTile));
-        handler.addObject(new Tile(925,625,ID.BounceTile));
-        handler.addObject(new Tile(1000,550,ID.BounceTile));
-        handler.addObject(new Tile(1075,475,ID.BounceTile));
-        //handler.addObject(new VBoost());
+        handler.addObject(new HBoost(300, 400, ID.HBoost));
+        handler.addObject(new Tile(100, 400, ID.BounceTile));
+        handler.addObject(new Tile(200, 500, ID.BounceTile));
+        handler.addObject(new Star(150, 725, ID.Star));
+        handler.addObject(new Tile(250,725,ID.BounceTile));
+        handler.addObject(new Tile(550,725,ID.BounceTile));
+        handler.addObject(new Tile(625,725,ID.BounceTile));
+        handler.addObject(new Tile(700,650,ID.BounceTile));
+        handler.addObject(new Tile(775,575,ID.BounceTile));
+        handler.addObject(new Tile(850,500,ID.BounceTile));
+        handler.addObject(new Tile(925,425,ID.BounceTile));
+        handler.addObject(new Tile(1000,350,ID.BounceTile));
+        handler.addObject(new Tile(1075,275,ID.BounceTile));
+        handler.addObject(new Star(1100, 230, ID.Star));
 
     }
 
