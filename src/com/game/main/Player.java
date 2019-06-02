@@ -1,16 +1,21 @@
 package com.game.main;
 
-import javax.swing.*;
+import com.sun.tools.javac.Main;
+
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
 import java.awt.*;
-import java.util.concurrent.TimeUnit;
+import java.io.File;
 
 public class Player extends GameObject {
 
-    Handler handler;
-    int heightTraveled = 0;
-    boolean bouncing = false;
-    boolean vBoosting = false;
-    boolean hBoosting = false;
+    private Handler handler;
+    private int heightTraveled = 0;
+    private boolean bouncing = false;
+    private boolean vBoosting = false;
+    private boolean hBoosting = false;
+    private boolean inputEnabled = true;
     HUD hud = new HUD();
 
     public Player(int x, int y, ID id, Handler handler) {
@@ -18,6 +23,7 @@ public class Player extends GameObject {
         this.handler = handler;
 
         setVelY(+3);
+        inputEnabled = true;
     }
 
     @Override
@@ -48,6 +54,7 @@ public class Player extends GameObject {
                     } else {
                         velX = 0;
                         velY = +3;
+                        inputEnabled = true;
                     }
                 }
             } else if(tempObject.getId() == ID.DeathTile) {
@@ -57,6 +64,17 @@ public class Player extends GameObject {
             }
             if(tempObject.getId() == ID.Star) {
                 if(getBounds().intersects(tempObject.getBounds())) {
+                    /*try {
+                        File file = new File("C:/Users/aryan/IdeaProjects/BouncyBall/Assets/smw_coin.wav");
+                        Clip clip = AudioSystem.getClip();
+                        AudioInputStream ais = AudioSystem.getAudioInputStream(file);
+                        clip.open(ais);
+                        clip.start();
+                    } catch (Exception e) {
+                        System.err.println(e.getMessage());
+                    }*/
+                    Star star = new Star(0, 0, null);
+                    star.playSound();
                     handler.removeObject(tempObject);
                 }
             }
@@ -92,8 +110,9 @@ public class Player extends GameObject {
 
     private void vBoost() {
         //setVelY(-4);
-        velX = -4;
+        velY = -4;
         vBoosting = false;
+        inputEnabled = false;
     }
 
     private void hBoost() {
@@ -102,6 +121,7 @@ public class Player extends GameObject {
         velX = +4;
         velY = 0;
         hBoosting = false;
+        inputEnabled = false;
     }
 
     @Override

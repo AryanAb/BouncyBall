@@ -1,4 +1,4 @@
-1. Fix collisions on the side
+1. Fix collisions on the side if there is velocity it does not work
 2. Add Death Tiles.
 3. Add Boost Tiles.
 4. Add GUI (main menu, score count, etc.)

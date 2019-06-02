@@ -1,8 +1,12 @@
 package com.game.main;
 
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.image.BufferStrategy;
+import java.io.File;
 //import java.security.spec.ECField;
 
 public class Game extends Canvas implements Runnable {
@@ -50,6 +54,15 @@ public class Game extends Canvas implements Runnable {
     }
 
     public synchronized void start(){
+        try {
+            File file = new File("C:/Users/aryan/IdeaProjects/BouncyBall/Assets/Europe_The_Final_Countdown_Instrumental.wav");
+            Clip clip = AudioSystem.getClip();
+            AudioInputStream ais = AudioSystem.getAudioInputStream(file);
+            clip.open(ais);
+            clip.loop(Clip.LOOP_CONTINUOUSLY);
+        } catch (Exception e){
+            System.err.println(e);
+        }
         thread  = new Thread(this);
         thread.start();
         isRunning = true;
