@@ -5,3 +5,4 @@
 5. Add file read and out.
 6. Use file read and out to place tiles, sprites, etc.
 7. Create a level editor.
+8. Clicking on the screen when the menu is not there still works fix it

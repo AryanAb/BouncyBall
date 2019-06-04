@@ -2,11 +2,14 @@ package com.game.main;
 
 import org.w3c.dom.css.Rect;
 
+import javax.imageio.ImageIO;
 import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
 import java.awt.*;
+import java.awt.image.BufferedImage;
 import java.io.File;
+import java.io.IOException;
 
 public class Star extends GameObject {
 
@@ -38,7 +41,16 @@ public class Star extends GameObject {
 
     @Override
     public void render(Graphics g) {
-        g.setColor(Color.YELLOW);
-        g.fillRect(x, y, 25, 25);
+
+        File path = new File("C:/Users/aryan/IdeaProjects/BouncyBall/Assets/Star.png");
+
+        BufferedImage img = null;
+        try {
+            img = ImageIO.read(path);
+        } catch (IOException e) {
+            System.err.println(e);
+        }
+
+        g.drawImage(img, x, y, null);
     }
 }

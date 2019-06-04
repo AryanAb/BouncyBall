@@ -19,37 +19,29 @@ public class Game extends Canvas implements Runnable {
     private Handler handler;
     private HUD hud;
     private Spawn spawner;
-    //private Window win;
+    private Menu menu;
+    private Window win;
+
+    public enum STATE{
+        Menu,
+        LevelEditor,
+        Game
+    };
+
+    public STATE gameState = STATE.Menu;
 
     public Game(){
+
         handler = new Handler();
-
+        menu = new Menu(this, handler);
         this.addKeyListener(new KeyInput(handler));
+        this.addMouseListener(menu);
 
-        new Window(WIDTH, HEIGHT, "Bouncy Ball!", this);
+        win = new Window(WIDTH, HEIGHT, "Bouncy Ball!", this);
         //win.getPreferredSize(win);
 
         hud = new HUD();
         spawner = new Spawn(handler, hud);
-
-        handler.addObject(new Player(100, 300, ID.Player, handler));
-        handler.addObject(new Tile(100, 800, ID.BounceTile));
-        handler.addObject(new Tile(175, 800, ID.BounceTile));
-        //handler.addObject(new DeathTile(300,300, ID.DeathTile));
-        handler.addObject(new HBoost(300, 400, ID.HBoost));
-        handler.addObject(new Tile(100, 400, ID.BounceTile));
-        handler.addObject(new Tile(200, 500, ID.BounceTile));
-        handler.addObject(new Star(150, 725, ID.Star));
-        handler.addObject(new Tile(250,725,ID.BounceTile));
-        handler.addObject(new Tile(550,725,ID.BounceTile));
-        handler.addObject(new Tile(625,725,ID.BounceTile));
-        handler.addObject(new Tile(700,650,ID.BounceTile));
-        handler.addObject(new Tile(775,575,ID.BounceTile));
-        handler.addObject(new Tile(850,500,ID.BounceTile));
-        handler.addObject(new Tile(925,425,ID.BounceTile));
-        handler.addObject(new Tile(1000,350,ID.BounceTile));
-        handler.addObject(new Tile(1075,275,ID.BounceTile));
-        handler.addObject(new Star(1100, 230, ID.Star));
 
     }
 
@@ -111,7 +103,13 @@ public class Game extends Canvas implements Runnable {
     private void tick(){
 
         handler.tick();
-        hud.tick();
+        if(gameState == STATE.Game){
+            hud.tick();
+        } else if(gameState == STATE.Menu){
+            menu.tick();
+        } else if(gameState == STATE.LevelEditor){
+            win.toggleVisibility();
+        }
     }
 
     private void render(){
@@ -129,7 +127,11 @@ public class Game extends Canvas implements Runnable {
 
         handler.render(g);
 
-        hud.render(g);
+        if(gameState == STATE.Game){
+            hud.render(g);
+        } else if(gameState == STATE.Menu){
+            menu.render(g);
+        }
 
         g.dispose();
         bs.show();
