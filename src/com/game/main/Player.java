@@ -11,13 +11,14 @@ public class Player extends GameObject {
     private boolean vBoosting = false;
     private boolean hBoosting = false;
     private boolean inputEnabled = true;
+
     HUD hud = new HUD();
 
     public Player(int x, int y, ID id, Handler handler) {
         super(x, y, id);
         this.handler = handler;
 
-        setVelY(+3);
+        setVelY(0);
         inputEnabled = true;
     }
 

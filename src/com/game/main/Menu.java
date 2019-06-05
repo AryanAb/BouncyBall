@@ -11,6 +11,7 @@ public class Menu extends MouseAdapter {
     private Game game;
     private Handler handler;
     private LevelEditor editor;
+    private Player player;
 
     public Menu(Game game, Handler handler){
         this.game = game;
@@ -24,8 +25,11 @@ public class Menu extends MouseAdapter {
 
         if(mouseOver(mx, my, 650, 300, 200, 75) && game.gameState == Game.STATE.Menu){
 
+            player = new Player(100, 300, ID.Player, handler);
+
             game.gameState = Game.STATE.Game;
-            handler.addObject(new Player(100, 300, ID.Player, handler));
+            handler.addObject(player);
+            player.velY = +3;
             handler.addObject(new Tile(100, 800, ID.BounceTile));
             handler.addObject(new Tile(175, 800, ID.BounceTile));
             //handler.addObject(new DeathTile(300,300, ID.DeathTile));

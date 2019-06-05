@@ -7,7 +7,6 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.image.BufferStrategy;
 import java.io.File;
-//import java.security.spec.ECField;
 
 public class Game extends Canvas implements Runnable {
 
@@ -21,6 +20,7 @@ public class Game extends Canvas implements Runnable {
     private Spawn spawner;
     private Menu menu;
     private Window win;
+    private Player player;
 
     public enum STATE{
         Menu,

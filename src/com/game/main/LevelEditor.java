@@ -12,12 +12,15 @@ public class LevelEditor extends Canvas implements Runnable {
     private boolean isRunning = false;
     private EditorHandler  eHandler;
     private EditorInput eInput;
+    private Handler handler;
 
     public LevelEditor(){
         new EditorWindow(WIDTH, HEIGHT, "Editor", this);
 
         eHandler = new EditorHandler();
-        eInput = new EditorInput(this, eHandler);
+        handler = new Handler();
+        eInput = new EditorInput(this, eHandler, handler);
+        this.addKeyListener(new EditorKeyInput(eInput));
         this.addMouseListener(eInput);
 
     }
