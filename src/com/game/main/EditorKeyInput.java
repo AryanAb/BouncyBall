@@ -20,9 +20,7 @@ public class EditorKeyInput extends KeyAdapter {
         if((key == KeyEvent.VK_S) && ((e.getModifiersEx() & KeyEvent.CTRL_DOWN_MASK) != 0)){
             tHandler = new TextHandler(eHandler);
 
-            tHandler.write();
-
-            //tHandler.read();
+            tHandler.save();
 
         }
 

@@ -16,7 +16,7 @@ public class TextHandler {
         this.eHandler = eHandler;
     }
 
-    public void write(){
+    public void save(){
 
         if(!myFile.isFile()){
             try {
@@ -39,7 +39,7 @@ public class TextHandler {
 
     }
 
-    public void read(Handler handler){
+    public void load(Handler handler){
 
         try {
 
