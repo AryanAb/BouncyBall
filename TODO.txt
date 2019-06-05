@@ -1,8 +1,9 @@
-1. Fix collisions on the side if there is velocity it does not work
-2. Add Death Tiles.
-3. Add Boost Tiles.
-4. Add GUI (main menu, score count, etc.)
-5. Add file read and out.
-6. Use file read and out to place tiles, sprites, etc.
-7. Create a level editor.
-8. Clicking on the screen when the menu is not there still works fix it
+1. Fix the collision.
+2. Fix the ball bouncing
+3. Add the VBoost, HBoost, etc sprites
+4. make the game look good.
+5. Add timer.
+6. Add Score, level, etc.
+7. Create a Game Over screen
+8. Create a Round Over screen
+9. Figure out why the game lags when it is reading from a file
