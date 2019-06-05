@@ -6,16 +6,24 @@ import java.awt.event.KeyEvent;
 public class EditorKeyInput extends KeyAdapter {
 
     private EditorInput eInput;
+    private TextHandler tHandler;
+    private EditorHandler eHandler;
 
-    public EditorKeyInput(EditorInput eInput){
+    public EditorKeyInput(EditorInput eInput, EditorHandler eHandler) {
         this.eInput = eInput;
+        this.eHandler = eHandler;
     }
 
     public void keyPressed(KeyEvent e){
         int key = e.getKeyCode();
 
         if((key == KeyEvent.VK_S) && ((e.getModifiersEx() & KeyEvent.CTRL_DOWN_MASK) != 0)){
-            System.out.println("Save");
+            tHandler = new TextHandler(eHandler);
+
+            tHandler.write();
+
+            //tHandler.read();
+
         }
 
         if(key == KeyEvent.VK_1){

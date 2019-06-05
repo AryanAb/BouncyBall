@@ -20,7 +20,7 @@ public class LevelEditor extends Canvas implements Runnable {
         eHandler = new EditorHandler();
         handler = new Handler();
         eInput = new EditorInput(this, eHandler, handler);
-        this.addKeyListener(new EditorKeyInput(eInput));
+        this.addKeyListener(new EditorKeyInput(eInput, eHandler));
         this.addMouseListener(eInput);
 
     }

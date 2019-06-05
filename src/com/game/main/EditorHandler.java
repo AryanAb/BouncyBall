@@ -5,7 +5,7 @@ import java.util.LinkedList;
 
 public class EditorHandler {
 
-    LinkedList<GameObject> object = new LinkedList<>();
+    LinkedList<GameObject> object = new LinkedList<GameObject>();
 
     public void tick(){
         for(int i = 0; i < object.size(); i++){

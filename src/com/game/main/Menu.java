@@ -12,10 +12,12 @@ public class Menu extends MouseAdapter {
     private Handler handler;
     private LevelEditor editor;
     private Player player;
+    private TextHandler tHandler;
 
     public Menu(Game game, Handler handler){
         this.game = game;
         this.handler = handler;
+        tHandler = new TextHandler(null);
     }
 
     public void mousePressed(MouseEvent e){
@@ -25,11 +27,13 @@ public class Menu extends MouseAdapter {
 
         if(mouseOver(mx, my, 650, 300, 200, 75) && game.gameState == Game.STATE.Menu){
 
-            player = new Player(100, 300, ID.Player, handler);
-
+            tHandler.read(handler);
             game.gameState = Game.STATE.Game;
+
+            /*player = new Player(400, 200, ID.Player, handler);
             handler.addObject(player);
             player.velY = +3;
+
             handler.addObject(new Tile(100, 800, ID.BounceTile));
             handler.addObject(new Tile(175, 800, ID.BounceTile));
             //handler.addObject(new DeathTile(300,300, ID.DeathTile));
@@ -46,7 +50,7 @@ public class Menu extends MouseAdapter {
             handler.addObject(new Tile(925, 425, ID.BounceTile));
             handler.addObject(new Tile(1000, 350, ID.BounceTile));
             handler.addObject(new Tile(1075, 275, ID.BounceTile));
-            handler.addObject(new Star(1100, 230, ID.Star));
+            handler.addObject(new Star(1100, 230, ID.Star));*/
 
         } else if(mouseOver(mx, my, 600, 400, 350, 75) && game.gameState == Game.STATE.Menu){
 
