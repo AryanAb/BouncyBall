@@ -6,13 +6,20 @@ import java.io.BufferedReader;
 
 public class LevelEditor extends Canvas implements Runnable {
 
-    private static final int WIDTH = 640, HEIGHT = WIDTH / 12 * 9;
+    private static final int WIDTH = 1500, HEIGHT = WIDTH / 16 * 9;
 
     private Thread thread;
     private boolean isRunning = false;
+    private EditorHandler  eHandler;
+    private EditorInput eInput;
 
     public LevelEditor(){
         new EditorWindow(WIDTH, HEIGHT, "Editor", this);
+
+        eHandler = new EditorHandler();
+        eInput = new EditorInput(this, eHandler);
+        this.addMouseListener(eInput);
+
     }
 
     public synchronized void start(){
@@ -35,7 +42,7 @@ public class LevelEditor extends Canvas implements Runnable {
     }
 
     public void tick(){
-
+        eHandler.tick();
     }
 
     public void render(){
@@ -49,6 +56,8 @@ public class LevelEditor extends Canvas implements Runnable {
 
         g.setColor(Color.WHITE);
         g.fillRect(0, 0, WIDTH, HEIGHT);
+
+        eHandler.render(g);
 
         g.dispose();
         bs.show();

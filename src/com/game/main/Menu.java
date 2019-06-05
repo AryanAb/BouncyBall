@@ -11,7 +11,6 @@ public class Menu extends MouseAdapter {
     private Game game;
     private Handler handler;
     private LevelEditor editor;
-    private Window window;
 
     public Menu(Game game, Handler handler){
         this.game = game;

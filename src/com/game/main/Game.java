@@ -11,7 +11,7 @@ import java.io.File;
 
 public class Game extends Canvas implements Runnable {
 
-    public static final int WIDTH = 640, HEIGHT = WIDTH / 12 * 9;
+    public static final int WIDTH = 1500, HEIGHT = WIDTH / 16 * 9;
 
     private Thread thread;
     private boolean isRunning = false;
@@ -46,7 +46,7 @@ public class Game extends Canvas implements Runnable {
     }
 
     public synchronized void start(){
-        try {
+        /*try {
             File file = new File("C:/Users/aryan/IdeaProjects/BouncyBall/Assets/Europe_The_Final_Countdown_Instrumental.wav");
             Clip clip = AudioSystem.getClip();
             AudioInputStream ais = AudioSystem.getAudioInputStream(file);
@@ -54,7 +54,7 @@ public class Game extends Canvas implements Runnable {
             clip.loop(Clip.LOOP_CONTINUOUSLY);
         } catch (Exception e){
             System.err.println(e);
-        }
+        }*/
         thread  = new Thread(this);
         thread.start();
         isRunning = true;
