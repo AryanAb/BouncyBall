@@ -57,7 +57,6 @@ public class Menu extends MouseAdapter {
             game.gameState = Game.STATE.LevelEditor;
 
             editor.main(new String[0]);
-            //window.toggleVisibility();
 
         } else if(mouseOver(mx, my, 650, 500, 200, 75) && game.gameState == Game.STATE.Menu) {
             System.exit(0);

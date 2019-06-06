@@ -7,3 +7,4 @@
 7. Create a Game Over screen
 8. Create a Round Over screen
 9. Figure out why the game lags when it is reading from a file
+10. Figure a way to load levels.

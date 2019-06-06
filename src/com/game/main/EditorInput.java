@@ -16,6 +16,8 @@ public class EditorInput extends MouseAdapter {
     public boolean DeathTileSelected = false;
     public boolean StarSelected = false;
     public boolean PlayerSpawnSelected = false;
+    public boolean VBoostSelected = false;
+    public boolean HBoostSeleted = false;
 
     public EditorInput(LevelEditor editor, EditorHandler eHandler, Handler handler){
         this.editor = editor;

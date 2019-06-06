@@ -30,19 +30,24 @@ public class EditorKeyInput extends KeyAdapter {
             eInput.BounceTileSelected = true;
             eInput.DeathTileSelected = false;
             eInput.StarSelected = false;
+            eInput.PlayerSpawnSelected = false;
         } else if(key == KeyEvent.VK_2){
             eInput.DeathTileSelected = true;
             eInput.BounceTileSelected = false;
             eInput.StarSelected = false;
+            eInput.PlayerSpawnSelected = false;
         } else if(key == KeyEvent.VK_3){
             eInput.StarSelected = true;
             eInput.DeathTileSelected = false;
             eInput.BounceTileSelected = false;
+            eInput.PlayerSpawnSelected = false;
         } else if(key == KeyEvent.VK_4){
             eInput.BounceTileSelected = false;
             eInput.DeathTileSelected = false;
             eInput.StarSelected = false;
             eInput.PlayerSpawnSelected = true;
+        } else if(key == KeyEvent.VK_5){
+
         }
 
     }

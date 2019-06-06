@@ -45,7 +45,7 @@ public class TextHandler {
 
     public void load(Handler handler){
 
-        String path = "C:/Users/aryan/Level4.txt";
+        String path = "C:/Users/aryan/Level1.txt";
         File myFile = new File(path);
 
         try {
