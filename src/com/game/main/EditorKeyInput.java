@@ -8,10 +8,12 @@ public class EditorKeyInput extends KeyAdapter {
     private EditorInput eInput;
     private TextHandler tHandler;
     private EditorHandler eHandler;
+    private LevelEditor editor;
 
-    public EditorKeyInput(EditorInput eInput, EditorHandler eHandler) {
+    public EditorKeyInput(EditorInput eInput, EditorHandler eHandler, LevelEditor editor) {
         this.eInput = eInput;
         this.eHandler = eHandler;
+        this.editor = editor;
     }
 
     public void keyPressed(KeyEvent e){
@@ -20,7 +22,7 @@ public class EditorKeyInput extends KeyAdapter {
         if((key == KeyEvent.VK_S) && ((e.getModifiersEx() & KeyEvent.CTRL_DOWN_MASK) != 0)){
             tHandler = new TextHandler(eHandler);
 
-            tHandler.save();
+            tHandler.save(editor.name, editor.path);
 
         }
 

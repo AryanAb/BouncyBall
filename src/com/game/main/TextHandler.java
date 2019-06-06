@@ -4,19 +4,23 @@ import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Scanner;
+import java.util.logging.Level;
 
 public class TextHandler {
 
     private EditorHandler eHandler;
-
-    String path = "C:/Users/aryan/Level1.txt";
-    File myFile = new File(path);
+    private LevelEditor editor;
 
     public TextHandler(EditorHandler eHandler){
+
         this.eHandler = eHandler;
     }
 
-    public void save(){
+    public void save(String name, File path){
+
+        String finalPath = path + "/" + name + ".txt";
+        File myFile = new File(finalPath);
+        System.out.println(path);
 
         if(!myFile.isFile()){
             try {
@@ -40,6 +44,9 @@ public class TextHandler {
     }
 
     public void load(Handler handler){
+
+        String path = "C:/Users/aryan/Level4.txt";
+        File myFile = new File(path);
 
         try {
 

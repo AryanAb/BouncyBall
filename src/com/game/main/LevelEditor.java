@@ -1,8 +1,12 @@
 package com.game.main;
 
+import javax.swing.*;
 import java.awt.*;
 import java.awt.image.BufferStrategy;
 import java.io.BufferedReader;
+import java.io.File;
+import java.io.IOException;
+import java.util.Scanner;
 
 public class LevelEditor extends Canvas implements Runnable {
 
@@ -14,14 +18,34 @@ public class LevelEditor extends Canvas implements Runnable {
     private EditorInput eInput;
     private Handler handler;
 
+    public File path;
+    public String name;
+
     public LevelEditor(){
         new EditorWindow(WIDTH, HEIGHT, "Editor", this);
 
         eHandler = new EditorHandler();
         handler = new Handler();
         eInput = new EditorInput(this, eHandler, handler);
-        this.addKeyListener(new EditorKeyInput(eInput, eHandler));
+        this.addKeyListener(new EditorKeyInput(eInput, eHandler, this));
         this.addMouseListener(eInput);
+
+        JFileChooser fc = new JFileChooser();
+        //fc.showOpenDialog(this);
+        fc.setCurrentDirectory(new java.io.File("."));
+        fc.setDialogTitle("Save Path");
+        fc.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+        fc.setAcceptAllFileFilterUsed(false);
+
+        if(fc.showOpenDialog(null) == JFileChooser.APPROVE_OPTION){
+            path = fc.getSelectedFile();
+            //System.out.println(path);
+            //System.out.println("File" + fc.getSelectedFile());
+        }
+
+
+        name = JOptionPane.showInputDialog(null, "Name of the level", "Save", 1);
+
 
     }
 
