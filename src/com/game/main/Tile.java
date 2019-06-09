@@ -21,6 +21,6 @@ public class Tile extends GameObject {
     @Override
     public void render(Graphics g) {
         g.setColor(Color.black);
-        g.fillRect(x, y, 75, 75);
+        g.fillRect(x, y, 50, 50);
     }
 }
