@@ -1,4 +1,4 @@
-package com.game.main;
+
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
@@ -25,7 +25,7 @@ public class VBoost extends GameObject {
     @Override
     public void render(Graphics g) {
 
-        File path = new File("E:/BouncyBall-master/Assets/VerticalBooster.png");
+        File path = new File("F:/BouncyBall-master/BouncyBall-master/Assets/VerticalBooster.png");
 
         BufferedImage img = null;
         try {

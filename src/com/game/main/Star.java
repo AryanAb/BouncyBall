@@ -1,4 +1,4 @@
-package com.game.main;
+
 
 import org.w3c.dom.css.Rect;
 
@@ -29,7 +29,7 @@ public class Star extends GameObject {
 
     public void playSound(){
         try {
-            File file = new File("E:/BouncyBall-master/Assets/smw_coin.wav");
+            File file = new File("F:/BouncyBall-master/BouncyBall-master/Assets/smw_coin.wav");
             Clip clip = AudioSystem.getClip();
             AudioInputStream ais = AudioSystem.getAudioInputStream(file);
             clip.open(ais);
@@ -42,7 +42,7 @@ public class Star extends GameObject {
     @Override
     public void render(Graphics g) {
 
-        File path = new File("E:/BouncyBall-master/Assets/Star.png");
+        File path = new File("F:/BouncyBall-master/BouncyBall-master/Assets/Star.png");
 
         BufferedImage img = null;
         try {

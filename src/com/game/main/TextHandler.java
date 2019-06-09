@@ -1,4 +1,4 @@
-package com.game.main;
+
 
 import java.io.File;
 import java.io.IOException;
@@ -45,7 +45,7 @@ public class TextHandler {
   
   public void load(Handler handler){
     
-    String path = "E:/BouncyBall-master/Levels/Level1.txt";
+    String path = "F:/BouncyBall-master/Levels/Level1.txt";
     File myFile = new File(path);
     
     try {

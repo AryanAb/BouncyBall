@@ -1,4 +1,4 @@
-package com.game.main;
+
 
 import java.awt.*;
 import java.io.File;
@@ -24,7 +24,7 @@ public class Player extends GameObject {
 
     @Override
     public Rectangle getBounds() {
-        return new Rectangle(x, y, 32, 32);
+        return new Rectangle(x, y, 26, 26);
     }
 
     @Override
@@ -45,7 +45,7 @@ public class Player extends GameObject {
 
             if(tempObject.getId() == ID.BounceTile) {
                 if(getBounds().intersects(tempObject.getBounds())) {
-                    if (getY() + 32 > tempObject.getBounds().y - 5 && getY() + 32 < tempObject.getBounds().y + 5){
+                    if (getY() + 26 > tempObject.getBounds().y - 5 && getY() + 26 < tempObject.getBounds().y + 5){
                         bouncing = true;
                     } else {
                         velX = 0;
@@ -77,7 +77,7 @@ public class Player extends GameObject {
             if(tempObject.getId() == ID.VBoost){
                 // simplify the if statements
                 if(getBounds().intersects(tempObject.getBounds())) {
-                    if(getY() + 32 > tempObject.getBounds().y - 5 && getY() + 32 < tempObject.getBounds().y + 5){
+                    if(getY() + 26 > tempObject.getBounds().y - 5 && getY() + 26 < tempObject.getBounds().y + 5){
                         vBoosting = true;
                     } else {
                         velX = 0;
@@ -123,6 +123,6 @@ public class Player extends GameObject {
     @Override
     public void render(Graphics g) {
         g.setColor(Color.blue);
-        g.fillOval(x, y, 32, 32);
+        g.fillOval(x, y, 26, 26);
     }
 }

@@ -1,4 +1,4 @@
-package com.game.main;
+
 
 import javax.swing.*;
 import java.awt.*;

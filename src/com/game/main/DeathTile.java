@@ -1,4 +1,4 @@
-package com.game.main;
+
 
 import java.awt.*;
 
@@ -10,7 +10,7 @@ public class DeathTile extends GameObject {
 
     @Override
     public Rectangle getBounds() {
-        return new Rectangle(x, y, 75, 75);
+        return new Rectangle(x, y, 50, 50);
     }
 
     @Override
@@ -21,6 +21,6 @@ public class DeathTile extends GameObject {
     @Override
     public void render(Graphics g) {
         g.setColor(Color.red);
-        g.fillRect(x, y, 75, 75);
+        g.fillRect(x, y, 50, 50);
     }
 }
