@@ -38,10 +38,8 @@ public class Window extends Canvas {
 
     /*public Dimension getPreferredSize( JComponent c) {
         Dimension size = ( (JToolBar.Separator)c ).getSeparatorSize();
-
         if( size != null) { return size.getSize(); }
         return null;
-
     }*/
 
 }
