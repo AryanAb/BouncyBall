@@ -33,7 +33,6 @@ public class Menu extends MouseAdapter {
             /*player = new Player(400, 200, ID.Player, handler);
             handler.addObject(player);
             player.velY = +3;
-
             handler.addObject(new Tile(100, 800, ID.BounceTile));
             handler.addObject(new Tile(175, 800, ID.BounceTile));
             //handler.addObject(new DeathTile(300,300, ID.DeathTile));
@@ -56,7 +55,9 @@ public class Menu extends MouseAdapter {
 
             game.gameState = Game.STATE.LevelEditor;
 
-            editor.main(new String[0]);
+            //editor.main(new String[0]);
+            //window.toggleVisibility();
+            //new LevelEditor();
 
         } else if(mouseOver(mx, my, 650, 500, 200, 75) && game.gameState == Game.STATE.Menu) {
             System.exit(0);
