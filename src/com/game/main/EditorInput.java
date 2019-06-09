@@ -5,6 +5,7 @@ package com.game.main;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.nio.file.StandardOpenOption;
 
 public class EditorInput extends MouseAdapter {
 
@@ -16,8 +17,8 @@ public class EditorInput extends MouseAdapter {
     public boolean DeathTileSelected = false;
     public boolean StarSelected = false;
     public boolean PlayerSpawnSelected = false;
+    public boolean HBoostSelected = false;
     public boolean VBoostSelected = false;
-    public boolean HBoostSeleted = false;
 
     public EditorInput(LevelEditor editor, EditorHandler eHandler, Handler handler){
         this.editor = editor;
@@ -43,7 +44,12 @@ public class EditorInput extends MouseAdapter {
             eHandler.addObject(new Star(gridFloor(mx) + 25, gridFloor(my) + 30, ID.Star));
         } else if(PlayerSpawnSelected) {
             eHandler.addObject(new Player(gridFloor(mx) + 20, gridFloor(my) + 10, ID.Player, handler));
+        } else if(HBoostSelected){
+          eHandler.addObject(new HBoost(gridFloor(mx), gridFloor(my), ID.HBoost));
+        } else if(VBoostSelected){
+          eHandler.addObject(new VBoost(gridFloor(mx), gridFloor(my), ID.VBoost));
         }
+          
 
     }
 
