@@ -1,9 +1,0 @@
-1. Fix the collision.
-2. Fix the ball bouncing
-3. Add the VBoost, HBoost, etc sprites
-4. make the game look good.
-5. Add timer.
-6. Add Score, level, etc.
-7. Create a Game Over screen
-8. Create a Round Over screen
-9. Figure out why the game lags when it is reading from a file
