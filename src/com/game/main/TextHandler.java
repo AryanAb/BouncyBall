@@ -1,4 +1,4 @@
-
+package com.game.main;
 
 import java.io.File;
 import java.io.IOException;
@@ -45,7 +45,7 @@ public class TextHandler {
   
   public void load(Handler handler){
     
-    String path = "F:/BouncyBall-master/Levels/Level1.txt";
+    String path = "Levels/Level1.txt";
     File myFile = new File(path);
     
     try {
@@ -65,6 +65,7 @@ public class TextHandler {
           handler.addObject(new DeathTile(x, y, ID.DeathTile));
         } else if(idString.equals("Star")){
           handler.addObject(new Star(x, y, ID.Star));
+          HUD.numStars++;
         } else if(idString.equals("Player")) {
           Player player = new Player(x, y, ID.Player, handler);
           handler.object.addFirst(player);

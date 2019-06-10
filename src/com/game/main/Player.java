@@ -1,7 +1,10 @@
+package com.game.main;
 
-
+import javax.imageio.ImageIO;
 import java.awt.*;
+import java.awt.image.BufferedImage;
 import java.io.File;
+import java.io.IOException;
 
 public class Player extends GameObject {
 
@@ -10,21 +13,24 @@ public class Player extends GameObject {
     private boolean bouncing = false;
     private boolean vBoosting = false;
     private boolean hBoosting = false;
-    private boolean inputEnabled = true;
 
-    HUD hud = new HUD();
+    public static boolean inputEnabled = true;
+    public static boolean collisionRight = false;
+    public static boolean collisionLeft = false;
+    public static int velocityMultiplierRight = 1;
+    public static int velocityMultiplierLeft = 1;
+
 
     public Player(int x, int y, ID id, Handler handler) {
         super(x, y, id);
         this.handler = handler;
 
         setVelY(0);
-        inputEnabled = true;
     }
 
     @Override
     public Rectangle getBounds() {
-        return new Rectangle(x, y, 26, 26);
+        return new Rectangle(x, y, 29, 29);
     }
 
     @Override
@@ -36,6 +42,12 @@ public class Player extends GameObject {
     if(bouncing) bounce();
     if(vBoosting) vBoost();
     if(hBoosting) hBoost();
+
+    if(this.y > 815 || this.y < 0){
+        HUD.lost = true;
+        inputEnabled = false;
+    }
+
     }
 
     private void collision() {
@@ -43,50 +55,56 @@ public class Player extends GameObject {
 
             GameObject tempObject = handler.object.get(i);
 
-            if(tempObject.getId() == ID.BounceTile) {
-                if(getBounds().intersects(tempObject.getBounds())) {
-                    if (getY() + 26 > tempObject.getBounds().y - 5 && getY() + 26 < tempObject.getBounds().y + 5){
+            if (tempObject.getId() == ID.BounceTile) {
+                if (getBounds().intersects(tempObject.getBounds())) {
+                    if (getY() + 26 > tempObject.getBounds().y - 5 && getY() + 26 < tempObject.getBounds().y + 5) {
                         bouncing = true;
                     } else {
-                        velX = 0;
                         velY = +3;
+                        hBoosting = false;
+                        vBoosting = false;
+                        velX = 0;
                         inputEnabled = true;
+                        if(tempObject.getX() > this.x){
+                            velocityMultiplierRight = 0;
+                        } else if(tempObject.getX() < this.x){
+                            velocityMultiplierLeft = 0;
+
+                        }
                     }
+                } else{
+                    //velocityMultiplierRight = 1;
+                    //velocityMultiplierLeft = 1;
                 }
-            } else if(tempObject.getId() == ID.DeathTile) {
-                if(getBounds().intersects(tempObject.getBounds())) {
-                    System.out.println("You died");
+            } else if (tempObject.getId() == ID.DeathTile) {
+                if (getBounds().intersects(tempObject.getBounds())) {
+                    //System.out.println("You died");
+                    HUD.lost = true;
+                    inputEnabled = false;
                 }
             }
-            if(tempObject.getId() == ID.Star) {
-                if(getBounds().intersects(tempObject.getBounds())) {
-                    /*try {
-                        File file = new File("C:/Users/aryan/IdeaProjects/BouncyBall/Assets/smw_coin.wav");
-                        Clip clip = AudioSystem.getClip();
-                        AudioInputStream ais = AudioSystem.getAudioInputStream(file);
-                        clip.open(ais);
-                        clip.start();
-                    } catch (Exception e) {
-                        System.err.println(e.getMessage());
-                    }*/
-                    Star star = new Star(0, 0, null);
-                    star.playSound();
+            if (tempObject.getId() == ID.Star) {
+                if (getBounds().intersects(tempObject.getBounds())) {
+                    HUD.numStars--;
+                    Star.playSound();
                     handler.removeObject(tempObject);
                 }
             }
-            if(tempObject.getId() == ID.VBoost){
+            if (tempObject.getId() == ID.VBoost) {
                 // simplify the if statements
-                if(getBounds().intersects(tempObject.getBounds())) {
-                    if(getY() + 26 > tempObject.getBounds().y - 5 && getY() + 26 < tempObject.getBounds().y + 5){
+                if (getBounds().intersects(tempObject.getBounds())) {
+                    if (getY() + 26 > tempObject.getBounds().y - 5 && getY() + 26 < tempObject.getBounds().y + 5) {
                         vBoosting = true;
                     } else {
                         velX = 0;
                     }
                 }
             }
-            if(tempObject.getId() == ID.HBoost){
-                if(getBounds().intersects(tempObject.getBounds())) {
+            if (tempObject.getId() == ID.HBoost) {
+                if (getBounds().intersects(tempObject.getBounds())) {
                     hBoosting = true;
+                    inputEnabled = false;
+                    System.out.println("Test");
                 }
             }
         }
@@ -108,7 +126,6 @@ public class Player extends GameObject {
         //setVelY(-4);
         velY = -4;
         vBoosting = false;
-        inputEnabled = false;
     }
 
     private void hBoost() {
@@ -116,13 +133,16 @@ public class Player extends GameObject {
         //setVelX(h.getDirection() * 4);
         velX = +4;
         velY = 0;
-        hBoosting = false;
-        inputEnabled = false;
     }
 
     @Override
     public void render(Graphics g) {
         g.setColor(Color.blue);
         g.fillOval(x, y, 26, 26);
+
+        //debugging
+        Graphics2D g2d = (Graphics2D) g;
+        g.setColor(Color.green);
+        g2d.draw(getBounds());
     }
 }

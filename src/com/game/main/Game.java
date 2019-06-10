@@ -1,9 +1,8 @@
-
+package com.game.main;
 
 import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
-import javax.swing.*;
 import java.awt.*;
 import java.awt.image.BufferStrategy;
 import java.io.File;
@@ -22,6 +21,7 @@ public class Game extends Canvas implements Runnable {
     private Window win;
     private Player player;
 
+
     public enum STATE{
         Menu,
         LevelEditor,
@@ -33,7 +33,7 @@ public class Game extends Canvas implements Runnable {
     public Game(){
 
         handler = new Handler();
-        menu = new Menu(this, handler);
+        menu = new Menu(this, handler, hud);
         this.addKeyListener(new KeyInput(handler));
         this.addMouseListener(menu);
 
@@ -47,7 +47,7 @@ public class Game extends Canvas implements Runnable {
 
     public synchronized void start(){
         /*try {
-            File file = new File("C:/Users/aryan/IdeaProjects/BouncyBall/Assets/Europe_The_Final_Countdown_Instrumental.wav");
+            File file = new File("Assets/Europe_The_Final_Countdown_Instrumental.wav");
             Clip clip = AudioSystem.getClip();
             AudioInputStream ais = AudioSystem.getAudioInputStream(file);
             clip.open(ais);

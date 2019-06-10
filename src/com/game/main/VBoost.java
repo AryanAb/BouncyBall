@@ -1,4 +1,4 @@
-
+package com.game.main;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
@@ -14,7 +14,7 @@ public class VBoost extends GameObject {
 
     @Override
     public Rectangle getBounds() {
-        return new Rectangle(x, y, 25, 25);
+        return new Rectangle(x, y, 75, 75);
     }
 
     @Override
@@ -25,7 +25,7 @@ public class VBoost extends GameObject {
     @Override
     public void render(Graphics g) {
 
-        File path = new File("F:/BouncyBall-master/BouncyBall-master/Assets/VerticalBooster.png");
+        File path = new File("Assets/VerticalBooster.png");
 
         BufferedImage img = null;
         try {

@@ -1,6 +1,4 @@
-
-
-import org.w3c.dom.css.Rect;
+package com.game.main;
 
 import javax.imageio.ImageIO;
 import javax.sound.sampled.AudioInputStream;
@@ -27,9 +25,9 @@ public class Star extends GameObject {
 
     }
 
-    public void playSound(){
+    public static void playSound(){
         try {
-            File file = new File("F:/BouncyBall-master/BouncyBall-master/Assets/smw_coin.wav");
+            File file = new File("Assets/smw_coin.wav");
             Clip clip = AudioSystem.getClip();
             AudioInputStream ais = AudioSystem.getAudioInputStream(file);
             clip.open(ais);
@@ -42,7 +40,7 @@ public class Star extends GameObject {
     @Override
     public void render(Graphics g) {
 
-        File path = new File("F:/BouncyBall-master/BouncyBall-master/Assets/Star.png");
+        File path = new File("Assets/Star.png");
 
         BufferedImage img = null;
         try {

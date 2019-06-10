@@ -1,4 +1,4 @@
-
+package com.game.main;
 
 import java.awt.*;
 
@@ -10,7 +10,7 @@ public class Tile extends GameObject {
 
     @Override
     public Rectangle getBounds() {
-        return new Rectangle(x, y, 75, 75);
+        return new Rectangle(x, y, 50, 50);
     }
 
     @Override

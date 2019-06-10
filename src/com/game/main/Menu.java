@@ -1,4 +1,4 @@
-
+package com.game.main;
 
 import java.awt.*;
 import java.awt.event.MouseAdapter;
@@ -13,10 +13,12 @@ public class Menu extends MouseAdapter {
     private LevelEditor editor;
     private Player player;
     private TextHandler tHandler;
+    private HUD hud;
 
-    public Menu(Game game, Handler handler){
+    public Menu(Game game, Handler handler, HUD hud){
         this.game = game;
         this.handler = handler;
+        this.hud = hud;
         tHandler = new TextHandler(null);
     }
 

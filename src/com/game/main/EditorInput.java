@@ -1,5 +1,5 @@
 // mouse input only
-
+package com.game.main;
 
 
 import javax.swing.*;
@@ -36,6 +36,10 @@ public class EditorInput extends MouseAdapter {
             GameObject tempObject = eHandler.object.get(i);
             if (tempObject.x == gridFloor(mx) && tempObject.y == gridFloor(my)) {
                 eHandler.removeObject(tempObject);
+            } else if(tempObject.x == gridFloor(mx) + 12 && tempObject.y == gridFloor(my) + 20){
+                eHandler.removeObject(tempObject);
+            } else if(tempObject.x == gridFloor(mx) + 12 && tempObject.y == gridFloor(my) + 10){
+                eHandler.removeObject(tempObject);
             }
         }
     }
@@ -53,7 +57,7 @@ public class EditorInput extends MouseAdapter {
             } else if (StarSelected) {
                 eHandler.addObject(new Star(gridFloor(mx)+ 12, gridFloor(my) + 20, ID.Star));
             } else if (PlayerSpawnSelected) {
-                eHandler.addObject(new Player(gridFloor(mx)+ 12, gridFloor(my) + 10, ID.Player, handler));
+                eHandler.addObject(new Player(gridFloor(mx) + 12, gridFloor(my) + 10, ID.Player, handler));
             } else if (HBoostSelected) {
                 eHandler.addObject(new HBoost(gridFloor(mx), gridFloor(my), ID.HBoost));
             } else if (VBoostSelected) {
