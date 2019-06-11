@@ -1,0 +1,4 @@
+550 350 BounceTile
+600 350 BounceTile
+562 320 Star
+612 310 Player

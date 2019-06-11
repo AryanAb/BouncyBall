@@ -1,0 +1,7 @@
+450 350 BounceTile
+500 350 BounceTile
+550 350 BounceTile
+462 310 Player
+1050 450 BounceTile
+1062 420 Star
+650 450 HBoost 1
