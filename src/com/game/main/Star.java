@@ -11,20 +11,36 @@ import java.io.IOException;
 
 public class Star extends GameObject {
 
+    /**
+     *
+     * @param x
+     * @param y
+     * @param id
+     */
     public Star(int x, int y, ID id){
         super(x, y, id);
     }
 
+    /**
+     *
+     * @return
+     */
     @Override
     public Rectangle getBounds() {
         return new Rectangle(x, y, 25, 25);
     }
 
+    /**
+     *
+     */
     @Override
     public void tick() {
 
     }
 
+    /**
+     *
+     */
     public static void playSound(){
         try {
             File file = new File("Assets/smw_coin.wav");
@@ -37,6 +53,10 @@ public class Star extends GameObject {
         }
     }
 
+    /**
+     *
+     * @param g
+     */
     @Override
     public void render(Graphics g) {
 

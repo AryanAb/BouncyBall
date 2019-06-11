@@ -12,22 +12,39 @@ public class HBoost extends GameObject {
 
     public int direction;
 
+    /**
+     *
+     * @param x
+     * @param y
+     * @param id
+     * @param direction
+     */
     public HBoost(int x, int y, ID id, int direction){
         super(x, y, id);
         this.direction = direction;
     }
 
+    /**
+     *
+     * @return
+     */
     @Override
     public Rectangle getBounds() {
         return new Rectangle(x, y, 50, 50);
     }
 
+    /**
+     *
+     */
     @Override
     public void tick() {
 
     }
 
- 
+    /**
+     *
+     * @param g
+     */
     @Override
     public void render(Graphics g) {
 
@@ -57,10 +74,19 @@ public class HBoost extends GameObject {
             }
         }
     }
+
+    /**
+     *
+     * @param direction
+     */
     public void setDirection(int direction) {
         // depending on the rotation of the image set direction to 1 or -1
     }
 
+    /**
+     *
+     * @return
+     */
     public int getDirection() {
         return direction;
     }

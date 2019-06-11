@@ -11,6 +11,10 @@ public class KeyInput extends KeyAdapter {
         this.handler = handler;
     }
 
+    /**
+     *
+     * @param e
+     */
     public void keyPressed(KeyEvent e) {
         int key = e.getKeyCode();
 
@@ -31,6 +35,10 @@ public class KeyInput extends KeyAdapter {
         }
     }
 
+    /**
+     *
+     * @param e
+     */
     public void keyReleased(KeyEvent e) {
         int key = e.getKeyCode();
 

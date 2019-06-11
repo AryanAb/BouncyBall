@@ -9,6 +9,13 @@ public class Window extends Canvas {
 
     JFrame frame;
 
+    /**
+     *
+     * @param width
+     * @param height
+     * @param title
+     * @param game
+     */
     public Window(int width, int height, String title, Game game){
 
         frame = new JFrame(title);
@@ -29,6 +36,9 @@ public class Window extends Canvas {
 
     }
 
+    /**
+     *
+     */
     public void toggleVisibility(){
 
         frame.setVisible(false);
@@ -36,10 +46,5 @@ public class Window extends Canvas {
 
     }
 
-    /*public Dimension getPreferredSize( JComponent c) {
-        Dimension size = ( (JToolBar.Separator)c ).getSeparatorSize();
-        if( size != null) { return size.getSize(); }
-        return null;
-    }*/
 
 }

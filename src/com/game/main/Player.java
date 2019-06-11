@@ -8,12 +8,12 @@ import java.io.IOException;
 
 public class Player extends GameObject {
 
+    //Variables
     private Handler handler;
     private int heightTraveled = 0;
     private boolean bouncing = false;
     private boolean vBoosting = false;
     private boolean hBoosting = false;
-
     public static boolean inputEnabled = true;
     public static boolean collisionRight = false;
     public static boolean collisionLeft = false;
@@ -21,6 +21,13 @@ public class Player extends GameObject {
     public static int velocityMultiplierLeft = 1;
 
 
+    /**
+     *
+     * @param x
+     * @param y
+     * @param id
+     * @param handler
+     */
     public Player(int x, int y, ID id, Handler handler) {
         super(x, y, id);
         this.handler = handler;
@@ -28,11 +35,18 @@ public class Player extends GameObject {
         setVelY(0);
     }
 
+    /**
+     *
+     * @return
+     */
     @Override
     public Rectangle getBounds() {
         return new Rectangle(x, y, 29, 29);
     }
 
+    /**
+     *
+     */
     @Override
     public void tick() {
     x += velX;
@@ -50,6 +64,9 @@ public class Player extends GameObject {
 
     }
 
+    /**
+     *
+     */
     private void collision() {
         for(int i = 0; i < handler.object.size(); i++) {
 
@@ -111,6 +128,9 @@ public class Player extends GameObject {
         }
     }
 
+    /**
+     *
+     */
     private void bounce() {
 
         setVelY(-3);
@@ -123,12 +143,19 @@ public class Player extends GameObject {
 
     }
 
+    /**
+     *
+     */
     private void vBoost() {
         //setVelY(-4);
         velY = -4;
         vBoosting = false;
     }
 
+    /**
+     *
+     * @param direction
+     */
     private void hBoost(int direction) {
         //HBoost h = new HBoost(0, 0, ID.HBoost);
         //setVelX(h.getDirection() * 4);
@@ -136,6 +163,10 @@ public class Player extends GameObject {
         velY = 0;
     }
 
+    /**
+     *
+     * @param g
+     */
     @Override
     public void render(Graphics g) {
         g.setColor(Color.blue);

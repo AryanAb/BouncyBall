@@ -13,18 +13,32 @@ public class HUD {
     public static boolean won = false;
     public static int numStars;
 
+    long startingTime = System.currentTimeMillis();
 
+    private long time;
+
+
+    /**
+     *
+     */
     public void tick() {
         if(numStars == 0){
             won = true;
         }
+        long passedTime = System.currentTimeMillis() - startingTime;
+        long seconds = passedTime / 1000;
+        //System.out.println(seconds);
+        time = 60 - seconds;
     }
 
+    /**
+     *
+     * @param g
+     */
     public void render(Graphics g) {
         g.setColor(Color.BLACK);
-        //g.drawString("Score: " + score, 10, 18);
+        g.drawString("Time Left: " + time, 10, 18);
 
-        //System.out.println(lost);
         if(lost){
             File path = new File("Assets/GameOver.png");
 

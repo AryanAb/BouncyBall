@@ -69,7 +69,9 @@ public class LevelEditor extends Canvas implements Runnable {
     }
 
     public void tick(){
-        eHandler.tick();
+        if(eHandler != null) {
+            eHandler.tick();
+        }
     }
 
     public void render(){
@@ -84,7 +86,9 @@ public class LevelEditor extends Canvas implements Runnable {
         g.setColor(Color.WHITE);
         g.fillRect(0, 0, WIDTH, HEIGHT);
 
-        eHandler.render(g);
+        if(eHandler != null) {
+            eHandler.render(g);
+        }
 
         g.dispose();
         bs.show();

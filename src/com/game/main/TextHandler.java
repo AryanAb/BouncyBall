@@ -15,7 +15,12 @@ public class TextHandler {
     
     this.eHandler = eHandler;
   }
-  
+
+  /**
+   *
+   * @param name
+   * @param path
+   */
   public void save(String name, File path){
     
     String finalPath = path + "/" + name + ".txt";
@@ -46,7 +51,11 @@ public class TextHandler {
     }
     
   }
-  
+
+  /**
+   *
+   * @param handler
+   */
   public void load(Handler handler){
     
     String path = "Levels/Level4.txt";
@@ -83,7 +92,7 @@ public class TextHandler {
         }
         
       }
-      
+
       reader.close();
       
     } catch (IOException e){

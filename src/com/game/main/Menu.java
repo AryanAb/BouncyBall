@@ -8,6 +8,7 @@ import java.io.*;
 
 public class Menu extends MouseAdapter {
 
+    //Variables
     private Game game;
     private Handler handler;
     private LevelEditor editor;
@@ -15,6 +16,12 @@ public class Menu extends MouseAdapter {
     private TextHandler tHandler;
     private HUD hud;
 
+    /**
+     *
+     * @param game
+     * @param handler
+     * @param hud
+     */
     public Menu(Game game, Handler handler, HUD hud){
         this.game = game;
         this.handler = handler;
@@ -22,6 +29,10 @@ public class Menu extends MouseAdapter {
         tHandler = new TextHandler(null);
     }
 
+    /**
+     *
+     * @param e
+     */
     public void mousePressed(MouseEvent e){
 
         int mx = e.getX();
@@ -67,10 +78,22 @@ public class Menu extends MouseAdapter {
 
     }
 
+    /**
     public void mouseReleased(MouseEvent e){
 
     }
+     */
 
+    /**
+     *
+     * @param mx
+     * @param my
+     * @param x
+     * @param y
+     * @param width
+     * @param height
+     * @return
+     */
     private boolean mouseOver(int mx, int my,  int x, int y, int width, int height){
 
         if(mx > x && mx < x + width) {
@@ -89,6 +112,10 @@ public class Menu extends MouseAdapter {
 
     }
 
+    /**
+     *
+     * @param g
+     */
     public void render(Graphics g){
 
         Font  font = new Font("arial", Font.BOLD, 50);

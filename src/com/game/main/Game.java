@@ -9,11 +9,10 @@ import java.io.File;
 
 public class Game extends Canvas implements Runnable {
 
+    //Variables
     public static final int WIDTH = 1500, HEIGHT = WIDTH / 16 * 9;
-
     private Thread thread;
     private boolean isRunning = false;
-
     private Handler handler;
     private HUD hud;
     private Spawn spawner;
@@ -30,6 +29,9 @@ public class Game extends Canvas implements Runnable {
 
     public STATE gameState = STATE.Menu;
 
+    /**
+     * @param
+     */
     public Game(){
 
         handler = new Handler();
@@ -121,20 +123,22 @@ public class Game extends Canvas implements Runnable {
 
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 
-        Graphics g = bs.getDrawGraphics();
-        g.setColor(Color.white);
-        g.fillRect(0, 0, (int) screenSize.getWidth(), (int) screenSize.getHeight());
+        if(win.frame.isVisible()) {
+            Graphics g = bs.getDrawGraphics();
+            g.setColor(Color.white);
+            g.fillRect(0, 0, (int) screenSize.getWidth(), (int) screenSize.getHeight());
 
-        handler.render(g);
+            handler.render(g);
 
-        if(gameState == STATE.Game){
-            hud.render(g);
-        } else if(gameState == STATE.Menu){
-            menu.render(g);
+            if (gameState == STATE.Game) {
+                hud.render(g);
+            } else if (gameState == STATE.Menu) {
+                menu.render(g);
+            }
+
+            g.dispose();
+            bs.show();
         }
-
-        g.dispose();
-        bs.show();
     }
 
     public static void main(String args[]){
