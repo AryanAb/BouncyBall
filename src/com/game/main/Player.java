@@ -41,7 +41,7 @@ public class Player extends GameObject {
     collision();
     if(bouncing) bounce();
     if(vBoosting) vBoost();
-    if(hBoosting) hBoost();
+    //if(hBoosting) hBoost();
 
     if(this.y > 815 || this.y < 0){
         HUD.lost = true;
@@ -102,7 +102,8 @@ public class Player extends GameObject {
             }
             if (tempObject.getId() == ID.HBoost) {
                 if (getBounds().intersects(tempObject.getBounds())) {
-                    hBoosting = true;
+                    //hBoosting = true;
+                    hBoost(((HBoost) tempObject).direction);
                     inputEnabled = false;
                     System.out.println("Test");
                 }
@@ -128,10 +129,10 @@ public class Player extends GameObject {
         vBoosting = false;
     }
 
-    private void hBoost() {
+    private void hBoost(int direction) {
         //HBoost h = new HBoost(0, 0, ID.HBoost);
         //setVelX(h.getDirection() * 4);
-        velX = +4;
+        velX = +4 * direction;
         velY = 0;
     }
 

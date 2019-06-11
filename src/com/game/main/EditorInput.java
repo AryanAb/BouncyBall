@@ -14,11 +14,12 @@ public class EditorInput extends MouseAdapter {
     private EditorHandler eHandler;
     private Handler handler;
 
-    public boolean BounceTileSelected = true;
+    public boolean BounceTileSelected = false;
     public boolean DeathTileSelected = false;
     public boolean StarSelected = false;
     public boolean PlayerSpawnSelected = false;
-    public boolean HBoostSelected = false;
+    public boolean HBoostLeftSelected = false;
+    public boolean HBoostRightSelected = false;
     public boolean VBoostSelected = false;
 
     public EditorInput(LevelEditor editor, EditorHandler eHandler, Handler handler){
@@ -58,9 +59,12 @@ public class EditorInput extends MouseAdapter {
                 eHandler.addObject(new Star(gridFloor(mx)+ 12, gridFloor(my) + 20, ID.Star));
             } else if (PlayerSpawnSelected) {
                 eHandler.addObject(new Player(gridFloor(mx) + 12, gridFloor(my) + 10, ID.Player, handler));
-            } else if (HBoostSelected) {
-                eHandler.addObject(new HBoost(gridFloor(mx), gridFloor(my), ID.HBoost));
-            } else if (VBoostSelected) {
+            } else if (HBoostLeftSelected) {
+                eHandler.addObject(new HBoost(gridFloor(mx), gridFloor(my), ID.HBoost, 1));
+            } else if (HBoostRightSelected){
+                eHandler.addObject(new HBoost(gridFloor(mx), gridFloor(my), ID.HBoost, -1));
+            }
+            else if (VBoostSelected) {
                 eHandler.addObject(new VBoost(gridFloor(mx), gridFloor(my), ID.VBoost));
             }
 

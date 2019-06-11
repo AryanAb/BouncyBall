@@ -34,7 +34,11 @@ public class TextHandler {
       PrintWriter writer = new PrintWriter(myFile);
       for(int i = 0; i < eHandler.object.size(); i++){
         GameObject tempObject = eHandler.object.get(i);
-        writer.println(tempObject.x + " " + tempObject.y + " " + tempObject.id);
+        if(tempObject.id == ID.HBoost){
+          writer.println(tempObject.x + " " + tempObject.y + " " + tempObject.id + " " + ((HBoost) tempObject).direction);
+        } else {
+          writer.println(tempObject.x + " " + tempObject.y + " " + tempObject.id);
+        }
       }
       writer.close();
     } catch (IOException e){
@@ -45,7 +49,7 @@ public class TextHandler {
   
   public void load(Handler handler){
     
-    String path = "Levels/Level1.txt";
+    String path = "Levels/Level4.txt";
     File myFile = new File(path);
     
     try {
@@ -71,7 +75,9 @@ public class TextHandler {
           handler.object.addFirst(player);
           player.velY = +3;
         }else if(idString.equals("HBoost")){
-          handler.addObject(new HBoost(x, y, ID.HBoost));
+          String directionString = reader.next();
+          int direction = Integer.parseInt(directionString);
+          handler.addObject(new HBoost(x, y, ID.HBoost, direction));
         } else if(idString.equals("VBoost")){
           handler.addObject(new VBoost(x, y, ID.VBoost));
         }
