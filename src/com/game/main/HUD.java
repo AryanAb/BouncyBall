@@ -12,6 +12,7 @@ public class HUD {
     public static boolean lost = false;
     public static boolean won = false;
     public static int numStars;
+    public static boolean showFirst = true;
 
     long startingTime = System.currentTimeMillis();
 
@@ -29,6 +30,9 @@ public class HUD {
         long seconds = passedTime / 1000;
         //System.out.println(seconds);
         time = 60 - seconds;
+        if(time == 0){
+            lost = true;
+        }
     }
 
     /**
@@ -49,7 +53,9 @@ public class HUD {
                 System.err.println(e);
             }
 
-            g.drawImage(img, 250, 300, null);
+            if(showFirst) {
+                g.drawImage(img, 250, 300, null);
+            }
         } else if(won){
             File path = new File("Assets/LevelCompleted.png");
 
@@ -60,7 +66,9 @@ public class HUD {
                 System.err.println(e);
             }
 
-            g.drawImage(img, 250, 300, null);
+            if(showFirst) {
+                g.drawImage(img, 250, 300, null);
+            }
         }
     }
 }

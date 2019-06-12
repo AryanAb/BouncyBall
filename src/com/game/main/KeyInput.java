@@ -6,9 +6,14 @@ import java.awt.event.KeyEvent;
 public class KeyInput extends KeyAdapter {
 
     private Handler handler;
+    private TextHandler tHandler = new TextHandler(null);
+    private Window win;
 
-    public KeyInput(Handler handler) {
+    private int level = 1;
+
+    public KeyInput(Handler handler, Window win) {
         this.handler = handler;
+        this.win = win;
     }
 
     /**
@@ -33,6 +38,34 @@ public class KeyInput extends KeyAdapter {
         if (key == KeyEvent.VK_ESCAPE) {
             System.exit(0);
         }
+
+        if (HUD.won) {
+            HUD.showFirst = true;
+            if(key == KeyEvent.VK_SPACE){
+                while (handler.object.size() > 0) {
+                    for(int i = 0; i < handler.object.size(); i++) {
+                        System.out.println(handler.object.size());
+                        GameObject temp = handler.object.get(i);
+                        handler.removeObject(temp);
+                    }
+                }
+                level++;
+                tHandler.load(handler, level);
+                HUD.showFirst = false;
+                HUD.won = false;
+            }
+        }
+
+        if(HUD.lost) {
+            HUD.showFirst = true;
+            if(key == KeyEvent.VK_SPACE){
+                tHandler.load(handler, level);
+            }
+            HUD.lost = false;
+            HUD.showFirst = false;
+        }
+
+
     }
 
     /**

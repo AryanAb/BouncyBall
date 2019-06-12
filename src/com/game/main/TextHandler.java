@@ -9,7 +9,6 @@ import java.util.logging.Level;
 public class TextHandler {
   
   private EditorHandler eHandler;
-  private LevelEditor editor;
   
   public TextHandler(EditorHandler eHandler){
     
@@ -56,9 +55,9 @@ public class TextHandler {
    *
    * @param handler
    */
-  public void load(Handler handler){
+  public void load(Handler handler, int level){
     
-    String path = "Levels/Level4.txt";
+    String path = "Levels/Level" + level+ ".txt";
     File myFile = new File(path);
     
     try {
@@ -98,7 +97,8 @@ public class TextHandler {
     } catch (IOException e){
       e.printStackTrace();
     }
-    
+
+    level++;
   }
   
 }

@@ -36,11 +36,10 @@ public class Game extends Canvas implements Runnable {
 
         handler = new Handler();
         menu = new Menu(this, handler, hud);
-        this.addKeyListener(new KeyInput(handler));
         this.addMouseListener(menu);
 
         win = new Window(WIDTH, HEIGHT, "Bouncy Ball!", this);
-        //win.getPreferredSize(win);
+        this.addKeyListener(new KeyInput(handler, win));
 
         hud = new HUD();
         spawner = new Spawn(handler, hud);

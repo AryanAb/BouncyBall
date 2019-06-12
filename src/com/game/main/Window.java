@@ -46,5 +46,10 @@ public class Window extends Canvas {
 
     }
 
+    public void remove(){
+        frame.getContentPane().removeAll();
+        frame.repaint();
+    }
+
 
 }

@@ -40,7 +40,7 @@ public class Menu extends MouseAdapter {
 
         if(mouseOver(mx, my, 650, 300, 200, 75) && game.gameState == Game.STATE.Menu){
 
-            tHandler.load(handler);
+            tHandler.load(handler, 1);
             game.gameState = Game.STATE.Game;
 
             /*player = new Player(400, 200, ID.Player, handler);
