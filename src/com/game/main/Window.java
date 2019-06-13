@@ -1,19 +1,22 @@
-package com.game.main;
+/**Window.java
+  * Joon Kim and Aryan Abed
+  * June 12th 2019
+  * To create a frame to run the game later
+  */
 
 import javax.swing.*;
 import java.awt.*;
-//import java.awt.Dimension;
 
 
 public class Window extends Canvas {
 
     JFrame frame;
 
-    /**
-     * @param width
-     * @param height
-     * @param title
-     * @param game
+    /** Create a window/frame to open to run the game
+     * @param width width of the frame
+     * @param height height of the frame
+     * @param title title of the frame
+     * @param game the main game that is going to run on the frame
      */
     public Window(int width, int height, String title, Game game) {
 

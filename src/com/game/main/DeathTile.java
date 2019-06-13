@@ -1,4 +1,8 @@
-package com.game.main;
+/** DeadTile.java
+ *  Aryan Abed and Joon Kim
+ *  June 12th 2019
+ *  To create a death tile
+ */
 
 import java.awt.*;
 

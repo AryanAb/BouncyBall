@@ -1,4 +1,10 @@
-package com.game.main;
+/** Game.java
+  * Joon Kim and Aryan Abed
+  * June 12th 2019
+  * 
+  */
+
+
 
 import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
@@ -48,7 +54,7 @@ public class Game extends Canvas implements Runnable {
     }
 
     public synchronized void start(){
-        /*try {
+        try {
             File file = new File("Assets/Europe_The_Final_Countdown_Instrumental.wav");
             Clip clip = AudioSystem.getClip();
             AudioInputStream ais = AudioSystem.getAudioInputStream(file);
@@ -56,7 +62,7 @@ public class Game extends Canvas implements Runnable {
             clip.loop(Clip.LOOP_CONTINUOUSLY);
         } catch (Exception e){
             System.err.println(e);
-        }*/
+        }
         thread  = new Thread(this);
         thread.start();
         isRunning = true;

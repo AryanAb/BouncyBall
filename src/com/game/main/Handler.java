@@ -1,4 +1,9 @@
-package com.game.main;
+/** Handler.java
+  * Joon Kim and Aryan Abed
+  * June 12th 2019
+  * 
+  */
+
 
 import java.awt.*;
 import java.util.LinkedList;
@@ -47,4 +52,3 @@ public class Handler {
     }
 
 }
-

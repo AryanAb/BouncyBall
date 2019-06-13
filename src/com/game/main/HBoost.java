@@ -1,4 +1,8 @@
-package com.game.main;
+/** HBoost.java
+  * Joon Kim and Aryan Abed
+  * June 12th 2019
+  * To create a horizontal booster
+  */
 
 import java.awt.*;
 import java.awt.geom.AffineTransform;
@@ -10,14 +14,16 @@ import javax.imageio.ImageIO;
 
 public class HBoost extends GameObject {
 
+    //Variables  
     public int direction;
 
     /**
      *
-     * @param x
-     * @param y
-     * @param id
-     * @param direction
+     * @param x x coordinate of the HBoost
+     * @param y y coordinate of the HBoost
+     * @param id ID(identity) of HBoost that is going to used to show it on the map
+     * @param direction direction that the ball is going to when the ball hit Hboost
+     * @return
      */
     public HBoost(int x, int y, ID id, int direction){
         super(x, y, id);

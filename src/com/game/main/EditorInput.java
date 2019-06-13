@@ -1,5 +1,9 @@
-// mouse input only
-package com.game.main;
+/** EditorInput.java
+  * Joon Kim and Aryan Abed
+  * June 12th 2019
+  * To input objects in the level editor
+  */ 
+
 
 
 import javax.swing.*;

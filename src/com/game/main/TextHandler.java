@@ -1,4 +1,9 @@
-package com.game.main;
+/**TextHandler.java
+  * Joon Kim and Aryan Abed
+  * June 12th 2019
+  * To handle text and load the map into the game
+  */
+
 
 import java.io.File;
 import java.io.IOException;
@@ -54,6 +59,7 @@ public class TextHandler {
   /**
    *
    * @param handler
+   * @param level the level of the game
    */
   public void load(Handler handler, int level){
     

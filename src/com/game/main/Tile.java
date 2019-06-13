@@ -1,4 +1,8 @@
-package com.game.main;
+/** Tile.java
+  * Joon Kim and Aryan Abed
+  * June 12th 2019
+  * To create a bouncing tile
+  */
 
 import java.awt.*;
 
@@ -31,9 +35,9 @@ public class Tile extends GameObject {
 
     }
 
-    /**
-     *
+    /**To render a normal bouncing tile on the map
      * @param g
+     * @return black normal bouncing tile
      */
     @Override
     public void render(Graphics g) {

@@ -1,4 +1,8 @@
-package com.game.main;
+/** Player.java
+  * Joon Kim and Aryan Abed
+  * June 12th 2019
+  * To create a player
+  */
 
 import javax.imageio.ImageIO;
 import java.awt.*;
@@ -19,9 +23,9 @@ public class Player extends GameObject {
 
     /**
      *
-     * @param x
-     * @param y
-     * @param id
+     * @param x x coordinate of the player's position
+     * @param y y coordinate of the player's position
+     * @param id ID(identity) of the player that is going to used to show it on the map
      * @param handler
      */
     public Player(int x, int y, ID id, Handler handler) {
@@ -166,8 +170,8 @@ public class Player extends GameObject {
         g.fillOval(x, y, 26, 26);
 
         //debugging
-        Graphics2D g2d = (Graphics2D) g;
-        g.setColor(Color.green);
-        g2d.draw(getBounds());
+        //Graphics2D g2d = (Graphics2D) g;
+       // g.setColor(Color.green);
+        //g2d.draw(getBounds());
     }
 }

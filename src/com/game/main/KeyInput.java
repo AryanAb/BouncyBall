@@ -1,4 +1,8 @@
-package com.game.main;
+/**KeyInput.java
+  * Joon Kim and Aryan Abed
+  * June 12th 2019
+  * To create keyboard controls that are going to be used to play the game
+  */
 
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;

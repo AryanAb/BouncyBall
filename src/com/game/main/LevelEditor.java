@@ -1,4 +1,8 @@
-package com.game.main;
+/** LevelEditor.java
+  * Joon Kim and Aryan Abed
+  * June 12th 2019
+  * To create a level editor that can be used to create a level for the game
+  */
 
 import javax.swing.*;
 import java.awt.*;
@@ -10,14 +14,13 @@ import java.util.Scanner;
 
 public class LevelEditor extends Canvas implements Runnable {
 
+    //Variables  
     private static final int WIDTH = 1500, HEIGHT = WIDTH / 16 * 9;
-
     private Thread thread;
     private boolean isRunning = false;
     private EditorHandler  eHandler;
     private EditorInput eInput;
     private Handler handler;
-
     public File path;
     public String name;
 

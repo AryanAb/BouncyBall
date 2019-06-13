@@ -1,4 +1,8 @@
-package com.game.main;
+/** GameObject.java
+  * Joon Kim and Aryan Abed
+  * June 12th 2019
+  * 
+  */
 
 import java.awt.*;
 

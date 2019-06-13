@@ -1,4 +1,8 @@
-package com.game.main;
+/** ID.java
+  * Joon Kim and Aryan Abed
+  * June 12th 2019
+  * 
+  */
 
 public enum ID{
 

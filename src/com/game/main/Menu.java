@@ -1,4 +1,9 @@
-package com.game.main;
+/** Menu.java
+  * Joon Kim and Aryan Abed
+  * June 12th 2019
+  * To create a menu
+  */
+
 
 import javax.imageio.ImageIO;
 import java.awt.*;

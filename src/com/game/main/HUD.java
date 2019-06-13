@@ -1,4 +1,8 @@
-package com.game.main;
+/** HUD.java
+  * Joon Kim and Aryan Abed
+  * June 12th 2019
+  * 
+  */
 
 import javax.imageio.ImageIO;
 import java.awt.*;

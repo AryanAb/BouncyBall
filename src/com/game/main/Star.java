@@ -1,4 +1,8 @@
-package com.game.main;
+/** Star.java
+  * Joon Kim and Aryan Abed
+  * June 12th 2019
+  * /To create a star
+  */
 
 import javax.imageio.ImageIO;
 import javax.sound.sampled.AudioInputStream;
@@ -13,9 +17,9 @@ public class Star extends GameObject {
 
     /**
      *
-     * @param x
-     * @param y
-     * @param id
+     * @param x x coordinate of the star
+     * @param y y coordinate of the star
+     * @param id ID (identity) of star that is going to used to show it on the map
      */
     public Star(int x, int y, ID id){
         super(x, y, id);

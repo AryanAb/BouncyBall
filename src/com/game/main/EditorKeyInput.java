@@ -1,4 +1,8 @@
-package com.game.main;
+/** EditorKeyInput.java
+  * Joon Kim and Aryan Abed
+  * June 12th 2019
+  * To create keyboard controls that are going to be used to create levels in the level editor
+  */
 
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
@@ -58,7 +62,7 @@ public class EditorKeyInput extends KeyAdapter {
             eInput.HBoostRightSelected = false;
             eInput.HBoostLeftSelected = true;
             eInput.VBoostSelected = false;
-        } else if(key == KeyEvent.VK_6){
+        } else if(key == KeyEvent.VK_V){
             eInput.BounceTileSelected = false;
             eInput.DeathTileSelected = false;
             eInput.StarSelected = false;
