@@ -1,7 +1,7 @@
 /** EditorHandler.java
  *  Joon Kim and Aryan Abed
  *  June 12th 2019
- * 
+ *  Handles all tick, render, object in level editor
  */ 
 
 

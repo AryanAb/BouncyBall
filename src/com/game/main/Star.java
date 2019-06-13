@@ -1,7 +1,7 @@
 /** Star.java
   * Joon Kim and Aryan Abed
   * June 12th 2019
-  * /To create a star
+  * To create a star
   */
 
 import javax.imageio.ImageIO;
@@ -15,8 +15,7 @@ import java.io.IOException;
 
 public class Star extends GameObject {
 
-    /**
-     *
+    /**Used to call a star in level editor, game, and levels.
      * @param x x coordinate of the star
      * @param y y coordinate of the star
      * @param id ID (identity) of star that is going to used to show it on the map
@@ -25,10 +24,9 @@ public class Star extends GameObject {
         super(x, y, id);
     }
 
-    /**
-     *
-     * @return
-     */
+   /**To create bounds of star
+    * @return 25 pixel sized rectangle
+    */
     @Override
     public Rectangle getBounds() {
         return new Rectangle(x, y, 25, 25);
@@ -42,8 +40,8 @@ public class Star extends GameObject {
 
     }
 
-    /**
-     *
+    /**Creates a bling sound when player collides with star
+     * @return bling sound when player has collided with star
      */
     public static void playSound(){
         try {
@@ -57,9 +55,9 @@ public class Star extends GameObject {
         }
     }
 
-    /**
-     *
-     * @param g
+    /**To call the image of star and render it
+     * @param g graphics
+     * @return star image
      */
     @Override
     public void render(Graphics g) {

@@ -17,39 +17,34 @@ public class HBoost extends GameObject {
     //Variables  
     public int direction;
 
-    /**
-     *
+    /**Used to call HBoost in level editor, game, and levels.
      * @param x x coordinate of the HBoost
      * @param y y coordinate of the HBoost
      * @param id ID(identity) of HBoost that is going to used to show it on the map
      * @param direction direction that the ball is going to when the ball hit Hboost
-     * @return
      */
     public HBoost(int x, int y, ID id, int direction){
         super(x, y, id);
         this.direction = direction;
     }
 
-    /**
-     *
-     * @return
+    /**To create bounds of death tile
+     *@return 50 pixel sized rectangle
      */
     @Override
     public Rectangle getBounds() {
         return new Rectangle(x, y, 50, 50);
     }
 
-    /**
-     *
-     */
+
     @Override
     public void tick() {
 
     }
 
-    /**
-     *
-     * @param g
+    /**To render HBoost
+     * @param g graphics
+     * @return deathtile image (image from the file)
      */
     @Override
     public void render(Graphics g) {
@@ -81,17 +76,15 @@ public class HBoost extends GameObject {
         }
     }
 
-    /**
-     *
+    /**To set the direction of ball's motion
      * @param direction
      */
     public void setDirection(int direction) {
         // depending on the rotation of the image set direction to 1 or -1
     }
 
-    /**
-     *
-     * @return
+    /** To get the direction of the ball's motion
+     * @return the direction of the ball
      */
     public int getDirection() {
         return direction;

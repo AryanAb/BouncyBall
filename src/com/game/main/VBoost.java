@@ -13,8 +13,7 @@ import javax.imageio.ImageIO;
 
 public class VBoost extends GameObject {
 
-    /**
-     *
+    /**Used to call a VBoost in level editor, game, and levels.
      * @param x x coordinate of VBoost 
      * @param y y coordinate of VBoost
      * @param id ID(identity) of VBoost that is going to used to show it on the map
@@ -23,10 +22,9 @@ public class VBoost extends GameObject {
         super(x, y, id);
     }
 
-    /**
-     *
-     * @return 
-     */
+   /**To create bounds of VBoost
+    * @return 50 pixel sized rectangle
+    */
     @Override
     public Rectangle getBounds() {
         return new Rectangle(x, y, 50, 50);

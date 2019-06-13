@@ -1,7 +1,7 @@
 /** HUD.java
   * Joon Kim and Aryan Abed
   * June 12th 2019
-  * 
+  * This head up display supply essential information about game state, including starting time, and render
   */
 
 import javax.imageio.ImageIO;

@@ -21,8 +21,7 @@ public class Player extends GameObject {
     public static int velocityMultiplierLeft = 1;
 
 
-    /**
-     *
+    /**Used to call the player in level editor, game, and levels.
      * @param x x coordinate of the player's position
      * @param y y coordinate of the player's position
      * @param id ID(identity) of the player that is going to used to show it on the map
@@ -160,9 +159,9 @@ public class Player extends GameObject {
         velY = 0;
     }
 
-    /**
-     *
+    /**To render the player on the map
      * @param g
+     * @return blue oval player
      */
     @Override
     public void render(Graphics g) {

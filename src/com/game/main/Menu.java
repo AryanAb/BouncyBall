@@ -32,9 +32,9 @@ public class Menu extends MouseAdapter {
         tHandler = new TextHandler(null);
     }
 
-    /**
-     *
-     * @param e
+    /**Proceed to different sections of the game
+     * @param e the position of mouse click
+     * @return the game state according to the mouse position
      */
     public void mousePressed(MouseEvent e){
 
@@ -75,7 +75,7 @@ public class Menu extends MouseAdapter {
      * @param y
      * @param width
      * @param height
-     * @return
+     * @return boolean
      */
     private boolean mouseOver(int mx, int my,  int x, int y, int width, int height){
 
@@ -95,9 +95,8 @@ public class Menu extends MouseAdapter {
 
     }
 
-    /**
-     *
-     * @param g
+    /**Render all the images that will be used to guide the user to go to different sections of the game
+     * @param g graphics
      */
     public void render(Graphics g){
 
@@ -149,10 +148,11 @@ public class Menu extends MouseAdapter {
 
             g.setFont(font);
             g.setColor(Color.BLACK);
-            g.drawString("Press A or Left Arrow Key to move left", 50, 100);
-            g.drawString("Press D or right Arrow Key to move right", 50, 200);
-            g.drawString("Once level completed or you have lost, press space bar to try again", 50, 300);
-            g.drawString("Press ESC to quit at any time", 50, 400);
+            g.drawString("Press A or Left Arrow Key to move left, Press D or right Arrow Key to move right", 20, 100);
+            g.drawString("Once level completed or you have lost, press space bar to try again. Also, press ESC to quit at any time", 20, 200);
+            g.drawString("Make sure you dont step on the red death tile! Or else you will die", 20, 300);
+            g.drawString("For level editor, press 1 for normal tile, press 2 for death tile, press 3 for star, press 4 for player", 20, 400);
+            g.drawString("Press L for left horizontal booster, press R for right horizontal booster and press V for vertical booster", 20, 500);
 
             BufferedImage back = null;
             try {

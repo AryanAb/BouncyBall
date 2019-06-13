@@ -20,10 +20,9 @@ public class TextHandler {
     this.eHandler = eHandler;
   }
 
-  /**
-   *
-   * @param name
-   * @param path
+  /**To save the level that is created
+   * @param name name of the level that is going to be saved
+   * @param path path of the file that is going to be saved
    */
   public void save(String name, File path){
     
@@ -56,8 +55,7 @@ public class TextHandler {
     
   }
 
-  /**
-   *
+  /**To read the created level and load it in the game
    * @param handler
    * @param level the level of the game
    */

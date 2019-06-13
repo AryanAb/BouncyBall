@@ -8,20 +8,18 @@ import java.awt.*;
 
 public class Tile extends GameObject {
 
-    /**
-     *
-     * @param x
-     * @param y
-     * @param id
-     */
+   /**Used to call a normal bouncing tile in level editor, game, and levels.
+   * @param x x coordinate of  tile
+   * @param y y coordinate of  tile
+   * @param id ID(identity) of the tile that is going to used to show it on the map
+   */
     public Tile(int x, int y, ID id){
         super(x, y, id);
     }
 
-    /**
-     *
-     * @return
-     */
+   /**To create bounds of Tile
+    * @return 50 pixel sized rectangle
+    */
     @Override
     public Rectangle getBounds() {
         return new Rectangle(x, y, 50, 50);
