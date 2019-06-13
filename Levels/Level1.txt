@@ -1,6 +1,9 @@
-150 350 BounceTile
-600 350 BounceTile
-650 350 BounceTile
-1100 450 BounceTile
-1112 420 Star
-612 310 Player
+600 400 BounceTile
+750 450 BounceTile
+750 450 BounceTile
+750 500 BounceTile
+750 550 BounceTile
+750 600 BounceTile
+850 550 BounceTile
+862 520 Star
+612 360 Player

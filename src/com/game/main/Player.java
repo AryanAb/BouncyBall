@@ -12,11 +12,7 @@ public class Player extends GameObject {
     private Handler handler;
     private int heightTraveled = 0;
     private boolean bouncing = false;
-    private boolean vBoosting = false;
-    private boolean hBoosting = false;
     public static boolean inputEnabled = true;
-    public static boolean collisionRight = false;
-    public static boolean collisionLeft = false;
     public static int velocityMultiplierRight = 1;
     public static int velocityMultiplierLeft = 1;
 
@@ -54,8 +50,6 @@ public class Player extends GameObject {
 
     collision();
     if(bouncing) bounce();
-    if(vBoosting) vBoost();
-    //if(hBoosting) hBoost();
 
     if(this.y > 815 || this.y < 0){
         HUD.lost = true;
@@ -74,18 +68,20 @@ public class Player extends GameObject {
 
             if (tempObject.getId() == ID.BounceTile) {
                 if (getBounds().intersects(tempObject.getBounds())) {
-                    if (getY() + 26 > tempObject.getBounds().y - 5 && getY() + 26 < tempObject.getBounds().y + 5) {
+                    if (getY() + 26 > tempObject.getBounds().y - 3 && getY() + 26 < tempObject.getBounds().y + 3) {
                         bouncing = true;
-                    } else {
+                    }
+                    else {
                         velY = +3;
-                        hBoosting = false;
-                        vBoosting = false;
                         velX = 0;
                         inputEnabled = true;
+                        bouncing = false;
                         if(tempObject.getX() > this.x){
                             velocityMultiplierRight = 0;
+                            this.x -= 2;
                         } else if(tempObject.getX() < this.x){
                             velocityMultiplierLeft = 0;
+                            this.x += 2;
 
                         }
                     }
@@ -95,7 +91,6 @@ public class Player extends GameObject {
                 }
             } else if (tempObject.getId() == ID.DeathTile) {
                 if (getBounds().intersects(tempObject.getBounds())) {
-                    //System.out.println("You died");
                     HUD.lost = true;
                     inputEnabled = false;
                 }
@@ -108,10 +103,10 @@ public class Player extends GameObject {
                 }
             }
             if (tempObject.getId() == ID.VBoost) {
-                // simplify the if statements
                 if (getBounds().intersects(tempObject.getBounds())) {
-                    if (getY() + 26 > tempObject.getBounds().y - 5 && getY() + 26 < tempObject.getBounds().y + 5) {
-                        vBoosting = true;
+                    this.y -= 1;
+                    if (getY() + 26 > tempObject.getBounds().y - 3 && getY() + 26 < tempObject.getBounds().y + 3) {
+                        vBoost();
                     } else {
                         velX = 0;
                     }
@@ -140,6 +135,8 @@ public class Player extends GameObject {
             bouncing = false;
             heightTraveled = 0;
         }
+        velocityMultiplierLeft = 1;
+        //velocityMultiplierRight = 1;
 
     }
 
@@ -147,9 +144,7 @@ public class Player extends GameObject {
      *
      */
     private void vBoost() {
-        //setVelY(-4);
         velY = -4;
-        vBoosting = false;
     }
 
     /**
@@ -157,8 +152,6 @@ public class Player extends GameObject {
      * @param direction
      */
     private void hBoost(int direction) {
-        //HBoost h = new HBoost(0, 0, ID.HBoost);
-        //setVelX(h.getDirection() * 4);
         velX = +4 * direction;
         velY = 0;
     }

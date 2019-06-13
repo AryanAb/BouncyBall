@@ -93,6 +93,7 @@ public class TextHandler {
       }
 
       reader.close();
+      HUD.startingTime();
       
     } catch (IOException e){
       e.printStackTrace();

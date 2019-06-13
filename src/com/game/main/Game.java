@@ -24,6 +24,7 @@ public class Game extends Canvas implements Runnable {
     public enum STATE{
         Menu,
         LevelEditor,
+        Instructions,
         Game
     };
 
@@ -35,14 +36,14 @@ public class Game extends Canvas implements Runnable {
     public Game(){
 
         handler = new Handler();
-        menu = new Menu(this, handler, hud);
+        menu = new Menu(this, handler);
         this.addMouseListener(menu);
 
         win = new Window(WIDTH, HEIGHT, "Bouncy Ball!", this);
         this.addKeyListener(new KeyInput(handler, win));
 
         hud = new HUD();
-        spawner = new Spawn(handler, hud);
+        //spawner = new Spawn(handler, hud);
 
     }
 
@@ -131,7 +132,7 @@ public class Game extends Canvas implements Runnable {
 
             if (gameState == STATE.Game) {
                 hud.render(g);
-            } else if (gameState == STATE.Menu) {
+            } else if (gameState == STATE.Menu || gameState == STATE.Instructions) {
                 menu.render(g);
             }
 

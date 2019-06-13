@@ -1,31 +1,29 @@
 package com.game.main;
 
+import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
 import java.io.*;
+import java.nio.Buffer;
 
 public class Menu extends MouseAdapter {
 
     //Variables
     private Game game;
     private Handler handler;
-    private LevelEditor editor;
-    private Player player;
     private TextHandler tHandler;
-    private HUD hud;
 
     /**
      *
      * @param game
      * @param handler
-     * @param hud
      */
-    public Menu(Game game, Handler handler, HUD hud){
+    public Menu(Game game, Handler handler){
         this.game = game;
         this.handler = handler;
-        this.hud = hud;
         tHandler = new TextHandler(null);
     }
 
@@ -38,51 +36,31 @@ public class Menu extends MouseAdapter {
         int mx = e.getX();
         int my = e.getY();
 
-        if(mouseOver(mx, my, 650, 300, 200, 75) && game.gameState == Game.STATE.Menu){
+        if(mouseOver(mx, my, 650, 120, 218, 113) && game.gameState == Game.STATE.Menu){
 
             tHandler.load(handler, 1);
             game.gameState = Game.STATE.Game;
 
-            /*player = new Player(400, 200, ID.Player, handler);
-            handler.addObject(player);
-            player.velY = +3;
-            handler.addObject(new Tile(100, 800, ID.BounceTile));
-            handler.addObject(new Tile(175, 800, ID.BounceTile));
-            //handler.addObject(new DeathTile(300,300, ID.DeathTile));
-            handler.addObject(new HBoost(300, 400, ID.HBoost));
-            handler.addObject(new Tile(100, 400, ID.BounceTile));
-            handler.addObject(new Tile(200, 500, ID.BounceTile));
-            handler.addObject(new Star(150, 725, ID.Star));
-            handler.addObject(new Tile(250, 725, ID.BounceTile));
-            handler.addObject(new Tile(550, 725, ID.BounceTile));
-            handler.addObject(new Tile(625, 725, ID.BounceTile));
-            handler.addObject(new Tile(700, 650, ID.BounceTile));
-            handler.addObject(new Tile(775, 575, ID.BounceTile));
-            handler.addObject(new Tile(850, 500, ID.BounceTile));
-            handler.addObject(new Tile(925, 425, ID.BounceTile));
-            handler.addObject(new Tile(1000, 350, ID.BounceTile));
-            handler.addObject(new Tile(1075, 275, ID.BounceTile));
-            handler.addObject(new Star(1100, 230, ID.Star));*/
 
-        } else if(mouseOver(mx, my, 600, 400, 350, 75) && game.gameState == Game.STATE.Menu){
+        } else if(mouseOver(mx, my, 600, 280, 691, 114) && game.gameState == Game.STATE.Menu){
 
             game.gameState = Game.STATE.LevelEditor;
 
-            //editor.main(new String[0]);
-            //window.toggleVisibility();
+
             new LevelEditor();
 
-        } else if(mouseOver(mx, my, 650, 500, 200, 75) && game.gameState == Game.STATE.Menu) {
+        }else if(mouseOver(mx, my, 555, 440, 410, 88) && game.gameState == Game.STATE.Menu){
+
+            game.gameState = Game.STATE.Instructions;
+
+        } else if(mouseOver(mx, my, 650, 570, 218, 114) && game.gameState == Game.STATE.Menu) {
             System.exit(0);
+        } else if(mouseOver(mx, my, 650, 570, 200, 85) && game.gameState == Game.STATE.Instructions) {
+            game.gameState = Game.STATE.Menu;
         }
 
     }
 
-    /**
-    public void mouseReleased(MouseEvent e){
-
-    }
-     */
 
     /**
      *
@@ -118,21 +96,69 @@ public class Menu extends MouseAdapter {
      */
     public void render(Graphics g){
 
-        Font  font = new Font("arial", Font.BOLD, 50);
+        if(game.gameState == Game.STATE.Menu) {
+            BufferedImage play = null;
+            try {
+                play = ImageIO.read(new File("Assets/Play.png"));
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
 
-        g.setFont(font);
-        g.setColor(Color.BLACK);
-        g.drawString("Menu", 680, 50);
+            g.drawImage(play, 650, 120, null);
 
-        g.setFont(font);
-        g.drawRect(650, 300, 200, 75);
-        g.drawString("Play", 680, 350);
+            BufferedImage levelEditor = null;
+            try {
+                levelEditor = ImageIO.read(new File("Assets/LevelEditor.png"));
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
 
-        g.drawRect(600, 400, 350, 75);
-        g.drawString("Level Editor", 620, 450);
+            g.drawImage(levelEditor, 420, 280, null);
 
-        g.drawRect(650, 500, 200, 75);
-        g.drawString("Quit", 680, 550);
+            BufferedImage instructions = null;
+            try {
+                instructions = ImageIO.read(new File("Assets/Instructions.png"));
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+            g.drawImage(instructions, 280, 125, null);
+
+            BufferedImage quit = null;
+            try {
+                quit = ImageIO.read(new File("Assets/Quit.png"));
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+            g.drawImage(quit, 650, 570, null);
+
+            Font font = new Font("arial", Font.BOLD, 50);
+
+            g.setFont(font);
+            g.setColor(Color.BLACK);
+            g.drawString("Menu", 680, 50);
+        }
+        if (game.gameState == Game.STATE.Instructions){
+            Font font = new Font("arial", Font.BOLD, 30);
+
+            g.setFont(font);
+            g.setColor(Color.BLACK);
+            g.drawString("Press A or Left Arrow Key to move left", 50, 100);
+            g.drawString("Press D or right Arrow Key to move right", 50, 200);
+            g.drawString("Once level completed or you have lost, press space bar to try again", 50, 300);
+            g.drawString("Press ESC to quit at any time", 50, 400);
+
+            BufferedImage back = null;
+            try {
+                back = ImageIO.read(new File("Assets/Back.png"));
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+            g.drawImage(back, 650, 570, null);
+        }
+
     }
 
 }

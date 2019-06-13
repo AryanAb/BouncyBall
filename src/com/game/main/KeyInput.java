@@ -23,16 +23,19 @@ public class KeyInput extends KeyAdapter {
     public void keyPressed(KeyEvent e) {
         int key = e.getKeyCode();
 
-        GameObject tempObject = handler.object.get(0);
+        if(handler.object.size() > 0) {
+            GameObject tempObject = handler.object.get(0);
 
-        if(Player.inputEnabled) {
-            if (key == KeyEvent.VK_D || key == KeyEvent.VK_RIGHT) {
-                tempObject.setVelX(5 * Player.velocityMultiplierRight);
-                Player.velocityMultiplierLeft = 1;
-            }
-            if (key == KeyEvent.VK_A || key == KeyEvent.VK_LEFT) {
-                tempObject.setVelX(-5 * Player.velocityMultiplierLeft);
-                Player.velocityMultiplierRight = 1;
+
+            if (Player.inputEnabled) {
+                if (key == KeyEvent.VK_D || key == KeyEvent.VK_RIGHT) {
+                    tempObject.setVelX(5 * Player.velocityMultiplierRight);
+                    Player.velocityMultiplierRight = 1;
+                }
+                if (key == KeyEvent.VK_A || key == KeyEvent.VK_LEFT) {
+                    tempObject.setVelX(-5 * Player.velocityMultiplierLeft);
+                    Player.velocityMultiplierLeft = 1;
+                }
             }
         }
         if (key == KeyEvent.VK_ESCAPE) {
@@ -40,29 +43,26 @@ public class KeyInput extends KeyAdapter {
         }
 
         if (HUD.won) {
-            HUD.showFirst = true;
             if(key == KeyEvent.VK_SPACE){
                 while (handler.object.size() > 0) {
-                    for(int i = 0; i < handler.object.size(); i++) {
-                        System.out.println(handler.object.size());
-                        GameObject temp = handler.object.get(i);
-                        handler.removeObject(temp);
-                    }
+                    handler.object.removeFirst();
                 }
                 level++;
                 tHandler.load(handler, level);
-                HUD.showFirst = false;
                 HUD.won = false;
             }
         }
 
         if(HUD.lost) {
-            HUD.showFirst = true;
             if(key == KeyEvent.VK_SPACE){
+                while (handler.object.size() > 0) {
+                    handler.object.removeFirst();
+                }
+                HUD.numStars = 0;
                 tHandler.load(handler, level);
+                HUD.lost = false;
+                Player.inputEnabled = true;
             }
-            HUD.lost = false;
-            HUD.showFirst = false;
         }
 
 
@@ -76,9 +76,14 @@ public class KeyInput extends KeyAdapter {
         int key = e.getKeyCode();
 
         GameObject tempObject = handler.object.get(0);
-
-        if (key == KeyEvent.VK_D || key == KeyEvent.VK_RIGHT) tempObject.setVelX(0);
-        if (key == KeyEvent.VK_A || key == KeyEvent.VK_LEFT) tempObject.setVelX(0);
+        if(Player.inputEnabled) {
+            if (key == KeyEvent.VK_D || key == KeyEvent.VK_RIGHT) {
+                tempObject.setVelX(0);
+            }
+            if (key == KeyEvent.VK_A || key == KeyEvent.VK_LEFT) {
+                tempObject.setVelX(0);
+            }
+        }
     }
 
 }

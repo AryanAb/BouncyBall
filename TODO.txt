@@ -1,8 +1,3 @@
-1. Fix the collision.
-2. Fix the ball bouncing
-4. make the game look good.
-6. Add Score, level, etc.
-9. Figure out why the game lags when it is reading from a file
-10. Figure a way to load levels.
-HBoost Freeze Vboost cant move left and right
-Time left 0 = game over
+1. Comment the code.
+2. Recreate Level2.
+3. Complete Instructions with images and stuff.
