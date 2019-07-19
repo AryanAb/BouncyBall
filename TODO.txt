@@ -1,3 +1,0 @@
-1. Comment the code.
-2. Recreate Level2.
-3. Complete Instructions with images and stuff.
